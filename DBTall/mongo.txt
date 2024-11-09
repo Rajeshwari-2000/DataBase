@@ -1,0 +1,123 @@
+Microsoft Windows [Version 10.0.19045.5011]
+(c) Microsoft Corporation. All rights reserved.
+
+mongod --dbpath="C:\MongoDB\db1" --bind_ip=192.168.10.117
+
+
+C:\Users\IET>mongosh --host 192.168.10.117 --port= 27017
+Current Mongosh Log ID: 671c7df5c665ed455686b01c
+Connecting to:          mongodb://192.168.10.117:27017/27017?directConnection=true&appName=mongosh+2.3.2
+Using MongoDB:          8.0.3
+Using Mongosh:          2.3.2
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2024-10-26T10:57:33.214+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+27017> show dbs;
+admin   40.00 KiB
+config  48.00 KiB
+local   40.00 KiB
+27017> use db1
+switched to db db1
+db1> show databases;
+admin   40.00 KiB
+config  48.00 KiB
+local   40.00 KiB
+db1> show dbs;
+admin   40.00 KiB
+config  48.00 KiB
+local   40.00 KiB
+db1> db db1;
+Uncaught:
+SyntaxError: Missing semicolon. (1:2)
+
+> 1 | db db1;
+    |   ^
+  2 |
+
+db1> db db1
+Uncaught:
+SyntaxError: Missing semicolon. (1:2)
+
+> 1 | db db1
+    |   ^
+  2 |
+
+db1> db;
+db1
+db1> show collections;
+
+db1> db.showcollectionNames();
+TypeError: db.showcollectionNames is not a function
+db1> db.getCollectionNames();
+[]
+db1> show tables;
+
+db1> db
+db1
+db1> db.getName();
+db1
+db1> db
+db1
+db1> db.getCollectionNames();
+[]
+db1> show dbs;
+admin   40.00 KiB
+config  72.00 KiB
+local   40.00 KiB
+db1>  db.getCollectionNames();
+[]
+db1> show tables;
+
+db1> show collections;
+
+db1> db.db1.movie.getCollection();
+TypeError: db.db1.movie.getCollection is not a function
+db1> db.db1.movie.getCollectionNames();
+TypeError: db.db1.movie.getCollectionNames is not a function
+db1> db.db1.movie.getCollection();
+db1> mongoimport --db db1 --collection db1 --type csv --file "C:\MongoDB\db1\movie.csv" --headerline
+Uncaught:
+SyntaxError: Missing semicolon. (1:14)
+
+> 1 | mongoimport --db db1 --collection db1 --type csv --file "C:\MongoDB\db1\movie.csv" --headerline
+    |               ^
+  2 |
+
+db1> mongoimport --db db1 --collection db1 --type csv --file "C:\MongoDB\db1\movie.csv" --headerline
+Uncaught:
+SyntaxError: Missing semicolon. (1:14)
+
+> 1 | mongoimport --db db1 --collection db1 --type csv --file "C:\MongoDB\db1\movie.csv" --headerline
+    |               ^
+  2 |
+
+db1> db.createCollection('MoviesCollection')
+{ ok: 1 }
+db1> show collections;
+MoviesCollection
+db1> mongoimport --db db1 --collection MoviesCollection--type csv --file "C:\MongoDB\db1\movie.csv" --headerline
+Uncaught:
+SyntaxError: Missing semicolon. (1:14)
+
+> 1 | mongoimport --db db1 --collection MoviesCollection--type csv --file "C:\MongoDB\db1\movie.csv" --headerline
+    |               ^
+  2 |
+
+db1> mongoimport --db db1 --collection Moviescollection --type csv --headerline --file "C:\MongoDB\db1"
+Uncaught:
+SyntaxError: Missing semicolon. (1:14)
+
+> 1 | mongoimport --db db1 --collection Moviescollection --type csv --headerline --file "C:\MongoDB\db1"
+    |               ^
+  2 |
+
+db1> mongoimport --db db1 --collection Moviescollection --type csv --headerline --file "C:\MongoDB\db1"

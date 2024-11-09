@@ -1,0 +1,379 @@
+1.
+DECLARE
+    Message VARCHAR2(50) := 'My First PL/SQL program';
+    Date_Written DATE := SYSDATE;
+BEGIN
+    INSERT INTO TEMP (Message, Date_Written) VALUES (Message, Date_Written);
+END;
+
+
+
+2.
+DECLARE
+    NUM1 NUMBER;
+    NUM2 NUMBER;
+    RESULT NUMBER;
+BEGIN
+    -- Accept values for NUM1 and NUM2
+    NUM1 := &NUM1;
+    NUM2 := &NUM2;
+
+    -- Calculate remainder
+    RESULT := MOD(NUM1, NUM2);
+
+    -- Check contents of RESULT
+    DBMS_OUTPUT.PUT_LINE('The remainder is: ' || RESULT);
+END;
+
+
+3.
+DECLARE
+    annual_salary NUMBER := &annual_salary;
+    annual_bonus_percentage NUMBER := &annual_bonus_percentage;
+    total_compensation NUMBER;
+BEGIN
+    IF annual_salary IS NULL THEN
+        annual_salary := 0;
+    END IF;
+
+    total_compensation := annual_salary + (annual_salary * (annual_bonus_percentage / 100));
+    DBMS_OUTPUT.PUT_LINE('Total Compensation: ' || total_compensation);
+END;
+
+
+
+4.
+DECLARE
+    max_deptno NUMBER;
+BEGIN
+    SELECT MAX(deptno) INTO max_deptno FROM DEPARTMENT;
+    DBMS_OUTPUT.PUT_LINE('Maximum Department Number: ' || max_deptno);
+END;
+
+
+5.
+DECLARE
+    deptno_input NUMBER;
+    new_location VARCHAR2(100);
+BEGIN
+    deptno_input := &deptno;
+    new_location := '&new_location';
+
+    UPDATE DEPARTMENT SET location = new_location WHERE deptno = deptno_input;
+
+    DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || ' row(s) updated.');
+    COMMIT;
+END;
+
+
+6.
+DECLARE
+    deptno_input NUMBER;
+BEGIN
+    deptno_input := &deptno;
+
+    DELETE FROM DEPARTMENT WHERE deptno = deptno_input;
+    DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || ' row(s) deleted.');
+
+    IF SQL%ROWCOUNT = 0 THEN
+        DBMS_OUTPUT.PUT_LINE('No department found with the given department number.');
+    END IF;
+
+    COMMIT;
+END;
+
+
+
+7.
+BEGIN
+    FOR i IN 1..10 LOOP
+        IF i != 6 AND i != 8 THEN
+            INSERT INTO TEMP (number_column) VALUES (i);
+        END IF;
+    END LOOP;
+    COMMIT;
+END;
+
+
+8.
+DECLARE
+    empno_input NUMBER;
+    salary NUMBER;
+    commission_amount NUMBER;
+BEGIN
+    empno_input := &empno;
+    
+    INSERT INTO EMP (empno, salary) VALUES (empno_input, NULL);
+
+    SELECT salary INTO salary FROM EMP WHERE empno = empno_input;
+
+    IF salary IS NULL THEN
+        commission_amount := 0;
+    ELSIF salary < 1000 THEN
+        commission_amount := salary * 0.10;
+    ELSIF salary BETWEEN 1000 AND 1500 THEN
+        commission_amount := salary * 0.15;
+    ELSE
+        commission_amount := salary * 0.20;
+    END IF;
+
+    DBMS_OUTPUT.PUT_LINE('Commission Amount: ' || commission_amount);
+    UPDATE EMP SET commission = commission_amount WHERE empno = empno_input;
+    COMMIT;
+END;
+
+
+9.
+DECLARE
+    n NUMBER := &n;
+BEGIN
+    INSERT INTO TEMP (name, salary)
+    SELECT name, salary FROM (SELECT name, salary FROM EMP ORDER BY salary DESC) WHERE ROWNUM <= n;
+    COMMIT;
+END;
+
+
+10.
+CREATE OR REPLACE PROCEDURE manage_product (
+    p_product_no IN NUMBER,
+    p_description IN VARCHAR2,
+    p_action IN VARCHAR2
+) AS
+BEGIN
+    IF p_action = 'INSERT' THEN
+        INSERT INTO PRODUCT (product_no, description) VALUES (p_product_no, p_description);
+    ELSIF p_action = 'UPDATE' THEN
+        UPDATE PRODUCT SET description = p_description WHERE product_no = p_product_no;
+    ELSIF p_action = 'DELETE' THEN
+        DELETE FROM PRODUCT WHERE product_no = p_product_no;
+    END IF;
+    COMMIT;
+END;
+
+
+11.
+CREATE OR REPLACE PROCEDURE get_emp_salary_job (
+    empno IN NUMBER,
+    salary OUT NUMBER,
+    job_title OUT VARCHAR2
+) AS
+BEGIN
+    SELECT sal, job INTO salary, job_title FROM EMP WHERE empno = empno;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        salary := NULL;
+        job_title := NULL;
+END;
+
+
+
+12.
+CREATE OR REPLACE PROCEDURE get_emp_salary_job (
+    empno IN NUMBER,
+    salary OUT NUMBER,
+    job_title OUT VARCHAR2
+) AS
+BEGIN
+    SELECT sal, job INTO salary, job_title FROM EMP WHERE empno = empno;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        salary := NULL;
+        job_title := NULL;
+END;
+
+
+
+13.
+CREATE OR REPLACE FUNCTION annual_compensation (
+    monthly_salary IN NUMBER,
+    commission IN NUMBER
+) RETURN NUMBER IS
+    annual_salary NUMBER;
+BEGIN
+    IF monthly_salary IS NULL THEN
+        monthly_salary := 0;
+    END IF;
+    
+    IF commission IS NULL THEN
+        commission := 0;
+    END IF;
+
+    annual_salary := (monthly_salary * 12) + commission;
+    RETURN annual_salary;
+END;
+
+
+
+14.
+CREATE OR REPLACE FUNCTION valid_deptno (
+    p_deptno IN NUMBER
+) RETURN BOOLEAN IS
+    v_count NUMBER;
+BEGIN
+    SELECT COUNT(*) INTO v_count FROM DEPT WHERE deptno = p_deptno;
+    RETURN v_count > 0;
+END;
+
+CREATE OR REPLACE PROCEDURE insert_new_employee (
+    p_empno IN NUMBER,
+    p_name IN VARCHAR2,
+    p_deptno IN NUMBER
+) AS
+BEGIN
+    IF valid_deptno(p_deptno) THEN
+        INSERT INTO EMP (empno, name, deptno) VALUES (p_empno, p_name, p_deptno);
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Department number does not exist.');
+    END IF;
+    COMMIT;
+END;
+
+
+
+15.
+
+DECLARE
+    original_string VARCHAR2(100) := '&input_string';
+    reversed_string VARCHAR2(100);
+BEGIN
+    FOR i IN REVERSE 1..LENGTH(original_string) LOOP
+        reversed_string := reversed_string || SUBSTR(original_string, i, 1);
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('Reversed String: ' || reversed_string);
+END;
+
+
+
+16.
+
+DECLARE
+    original_string VARCHAR2(100) := '&input_string';
+    reversed_string VARCHAR2(100);
+BEGIN
+    FOR i IN REVERSE 1..LENGTH(original_string) LOOP
+        reversed_string := reversed_string || SUBSTR(original_string, i, 1);
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('Reversed String: ' || reversed_string);
+END;
+
+
+17.
+
+DECLARE
+    num NUMBER := &input_number;
+BEGIN
+    FOR i IN 1..10 LOOP
+        DBMS_OUTPUT.PUT_LINE(num || ' x ' || i || ' = ' || (num * i));
+    END LOOP;
+END;
+
+
+
+18.
+
+DECLARE
+    empno_input NUMBER := &empno;
+    new_salary NUMBER := &new_salary;
+BEGIN
+    UPDATE EMP SET sal = new_salary WHERE empno = empno_input;
+    DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || ' row(s) updated.');
+    COMMIT;
+END;
+
+
+
+19.
+
+DECLARE
+    empno_input NUMBER := &empno;
+    current_salary NUMBER;
+BEGIN
+    SELECT sal INTO current_salary FROM EMP WHERE empno = empno_input;
+
+    IF current_salary < 1500 THEN
+        UPDATE EMP SET sal = current_salary + 1000 WHERE empno = empno_input;
+    ELSIF current_salary = 1500 THEN
+        UPDATE EMP SET sal = current_salary + 1500 WHERE empno = empno_input;
+    ELSIF current_salary > 1500 THEN
+        UPDATE EMP SET sal = current_salary + 2500 WHERE empno = empno_input;
+    END IF;
+
+    DBMS_OUTPUT.PUT_LINE('Salary updated for employee number ' || empno_input);
+    COMMIT;
+END;
+
+
+
+20.
+DECLARE
+    CURSOR emp_cursor IS SELECT empno, name, sal FROM EMP;
+    emp_record emp_cursor%ROWTYPE;
+BEGIN
+    OPEN emp_cursor;
+    LOOP
+        FETCH emp_cursor INTO emp_record;
+        EXIT WHEN emp_cursor%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('Employee No: ' || emp_record.empno || ', Name: ' || emp_record.name || ', Salary: ' || emp_record.sal);
+    END LOOP;
+    CLOSE emp_cursor;
+END;
+
+
+
+21
+BEGIN
+    UPDATE EMP SET sal = sal + 1000 WHERE deptno = 30;
+    DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || ' employee(s) salary updated in department 30.');
+    COMMIT;
+END;
+
+
+
+22.
+DECLARE
+    job_count NUMBER;
+    job_type VARCHAR2(50) := '&job_type';
+BEGIN
+    SELECT COUNT(*) INTO job_count FROM EMP WHERE job = job_type;
+
+    IF job_count = 0 THEN
+        DBMS_OUTPUT.PUT_LINE(job_type || ' NOT FOUND');
+    ELSIF job_count = 1 THEN
+        DBMS_OUTPUT.PUT_LINE(job_type || ' FOUND ONCE');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE(job_type || ' FOUND MORE THAN ONCE');
+    END IF;
+END;
+
+
+
+23.
+DECLARE
+    clerk_count NUMBER;
+BEGIN
+    SELECT COUNT(*) INTO clerk_count FROM EMP WHERE job = 'CLERK';
+
+    IF clerk_count > 1 THEN
+        DBMS_OUTPUT.PUT_LINE('MORE THAN ONE CLERK');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('One or no clerks found.');
+    END IF;
+END;
+
+
+
+24.
+BEGIN
+    UPDATE COMM c
+    SET c.Comm_Amt = 0.07 * (SELECT s.Amount FROM SALE s WHERE s.Sale_Id = c.Sale_Id)
+    WHERE EXISTS (SELECT 1 FROM SALE s WHERE s.Sale_Id = c.Sale_Id);
+
+    DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || ' commission amounts updated.');
+    COMMIT;
+END;
+
+
+
+
+
+

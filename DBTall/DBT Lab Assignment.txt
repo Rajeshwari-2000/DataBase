@@ -1,0 +1,852 @@
+Assigment 01:
+
+Create COURSE Relation with following columns using Workbench.
+
+Microsoft Windows [Version 10.0.19045.4894]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\IET>mysql --user=dac103 --password =welcome
+Enter password: *******
+ERROR 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+
+C:\Users\IET>mysql --host 192.168.10.150 --port 3306 --user=dac103 --password=welcome
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 196
+Server version: 8.1.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use dac103;
+Database changed
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| dac103             |
+| information_schema |
+| performance_schema |
++--------------------+
+3 rows in set (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_dac103 |
++------------------+
+| course           |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> desc course;
++----------+---------------+------+-----+---------+-------+
+| Field    | Type          | Null | Key | Default | Extra |
++----------+---------------+------+-----+---------+-------+
+| Id       | int           | NO   | PRI | NULL    |       |
+| Name     | varchar(45)   | YES  |     | NULL    |       |
+| Duration | varchar(45)   | YES  |     | NULL    |       |
+| Summary  | varchar(1024) | YES  |     | NULL    |       |
++----------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into course(Id,Name,Duration,Summary)values(1,"PG-DAC","6","This course is designed by cdac");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> desc course;
++----------+---------------+------+-----+---------+-------+
+| Field    | Type          | Null | Key | Default | Extra |
++----------+---------------+------+-----+---------+-------+
+| Id       | int           | NO   | PRI | NULL    |       |
+| Name     | varchar(45)   | YES  |     | NULL    |       |
+| Duration | varchar(45)   | YES  |     | NULL    |       |
+| Summary  | varchar(1024) | YES  |     | NULL    |       |
++----------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from course;
++----+--------+----------+---------------------------------+
+| Id | Name   | Duration | Summary                         |
++----+--------+----------+---------------------------------+
+|  1 | PG-DAC | 6        | This course is designed by cdac |
++----+--------+----------+---------------------------------+
+1 row in set (0.00 sec)
+
+mysql> desc course;
++----------+---------------+------+-----+---------+-------+
+| Field    | Type          | Null | Key | Default | Extra |
++----------+---------------+------+-----+---------+-------+
+| Id       | int           | NO   | PRI | NULL    |       |
+| Name     | varchar(45)   | YES  |     | NULL    |       |
+| Duration | varchar(45)   | YES  |     | NULL    |       |
+| Summary  | varchar(1024) | YES  |     | NULL    |       |
++----------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from course;
++----+---------+----------+---------------------------------+
+| Id | Name    | Duration | Summary                         |
++----+---------+----------+---------------------------------+
+|  1 | PG-DAC  | 6        | This course is designed by cdac |
+|  2 | PG-DBDA | 6        | This course is designed by cdac |
++----+---------+----------+---------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into course(Id,Name,Duration,Summary)values(3,"Pre-DAC","2","This course is designed by cdac");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into course(Id,Name,Duration,Summary)values(4,"Java","3","This course is designed by Infoway");
+Query OK, 1 row affected (0.35 sec)
+
+mysql> insert into course(Id,Name,Duration,Summary)values(5,".Net","3","This course is designed by Infoway");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into course(Id,Name,Duration,Summary)values(6,"DMC","6","This course is designed by cdac");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into course(Id,Name,Duration,Summary)values(7,"DSSD","6","This course is designed by cdac");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from course;
++----+---------+----------+------------------------------------+
+| Id | Name    | Duration | Summary                            |
++----+---------+----------+------------------------------------+
+|  1 | PG-DAC  | 6        | This course is designed by cdac    |
+|  2 | PG-DBDA | 6        | This course is designed by cdac    |
+|  3 | Pre-DAC | 2        | This course is designed by cdac    |
+|  4 | Java    | 3        | This course is designed by Infoway |
+|  5 | .Net    | 3        | This course is designed by Infoway |
+|  6 | DMC     | 6        | This course is designed by cdac    |
+|  7 | DSSD    | 6        | This course is designed by cdac    |
++----+---------+----------+------------------------------------+
+7 rows in set (0.00 sec)
+
+======================================================================================================================================================================
+
+Microsoft Windows [Version 10.0.19045.4894]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\IET>mysql --host 192.168.10.150 --port 3306 --user=dac103 --password=welcome
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 70
+Server version: 8.1.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| dac103             |
+| information_schema |
+| performance_schema |
++--------------------+
+3 rows in set (0.01 sec)
+
+mysql> use dac103;
+Database changed
+mysql> source C:\Users\IET\Desktop\MySQLDEMOBLD7.SQL
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+
+
+Query OK, 1 row affected (0.04 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_dac103    |
++---------------------+
+| a                   |
+| agent               |
+| andor               |
+| b                   |
+| blanktablea         |
+| blanktableb         |
+| blog                |
+| bonus               |
+| books               |
+| candidate           |
+| client              |
+| coalesce            |
+| comments            |
+| company             |
+| course              |
+| customer            |
+| customers           |
+| demodept1           |
+| demodept2           |
+| dept                |
+| dept1               |
+| docs                |
+| doctor              |
+| doctorvisits        |
+| dummy               |
+| duplicate           |
+| emp                 |
+| emp1                |
+| emp2                |
+| emp_attendance      |
+| emp_cards           |
+| emp_phone           |
+| empj                |
+| envelope            |
+| food                |
+| fullname            |
+| hobby               |
+| item                |
+| job_list            |
+| key_parts           |
+| labtestlist         |
+| leadtable           |
+| licence             |
+| location            |
+| mass_table          |
+| medicinelist        |
+| menucard            |
+| nearest             |
+| new                 |
+| newbooks            |
+| nullif              |
+| numbers             |
+| numberstring        |
+| ord                 |
+| orderdetails        |
+| orders              |
+| overtime            |
+| patient             |
+| phonecall           |
+| pivot_table         |
+| plumber             |
+| plumber_service_map |
+| points              |
+| price               |
+| product             |
+| product_sales       |
+| products            |
+| quarterly_revenue   |
+| r                   |
+| r1                  |
+| r2                  |
+| races               |
+| regexpr             |
+| replacedept         |
+| revenue             |
+| rockets             |
+| runners             |
+| runningserver       |
+| sales               |
+| sales_channel       |
+| salespeople         |
+| salesperson         |
+| salgrade            |
+| server              |
+| service             |
+| seta                |
+| setb                |
+| shop                |
+| softdrink           |
+| sort                |
+| sourcenames         |
+| stadium             |
+| states              |
+| station             |
+| status              |
+| stringnumber        |
+| student             |
+| tablea              |
+| tableaa             |
+| tableb              |
+| tablebb             |
+| targetnames         |
+| tasks               |
+| temp1               |
+| traintimetable      |
+| transactions        |
+| vote_response       |
+| votes               |
+| warehouse           |
+| yearly_revenue      |
+| z                   |
++---------------------+
+111 rows in set (0.24 sec)
+
+mysql> use z1;
+ERROR 1044 (42000): Access denied for user 'dac103'@'%' to database 'z1'
+mysql> use z;
+ERROR 1044 (42000): Access denied for user 'dac103'@'%' to database 'z'
+mysql> use dac103;
+Database changed
+mysql> select * from z;
++------+
+| C1   |
++------+
+| X    |
+| y    |
++------+
+2 rows in set (0.00 sec)
+
+mysql> desc z;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| C1    | char(1) | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> alter table z add (c2 varchar(10),c4 date);
+Query OK, 0 rows affected (0.28 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| C1    | char(1)     | YES  |     | NULL    |       |
+| c2    | varchar(10) | YES  |     | NULL    |       |
+| c4    | date        | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> alter table z add c3 varchar(10)after c2;
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| C1    | char(1)     | YES  |     | NULL    |       |
+| c2    | varchar(10) | YES  |     | NULL    |       |
+| c3    | varchar(10) | YES  |     | NULL    |       |
+| c4    | date        | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table z add column id int primary key first;
+ERROR 1062 (23000): Duplicate entry '0' for key 'z.PRIMARY'
+mysql> alter table z add column id int first;
+Query OK, 0 rows affected (0.29 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| C1    | char(1)     | YES  |     | NULL    |       |
+| c2    | varchar(10) | YES  |     | NULL    |       |
+| c3    | varchar(10) | YES  |     | NULL    |       |
+| c4    | date        | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter z drop column id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'z drop column id' at line 1
+mysql> alter table z drop column id;
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| C1    | char(1)     | YES  |     | NULL    |       |
+| c2    | varchar(10) | YES  |     | NULL    |       |
+| c3    | varchar(10) | YES  |     | NULL    |       |
+| c4    | date        | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter z drop column id,drop column c4;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'z drop column id,drop column c4' at line 1
+mysql> alter table z drop column id,drop column c4;
+ERROR 1091 (42000): Can't DROP 'id'; check that column/key exists
+mysql> alter table z drop column c3,drop column c4;
+Query OK, 0 rows affected (0.17 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| C1    | char(1)     | YES  |     | NULL    |       |
+| c2    | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table z add (c3 varchar(10),c4 date);
+Query OK, 0 rows affected (0.17 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| C1    | char(1)     | YES  |     | NULL    |       |
+| c2    | varchar(10) | YES  |     | NULL    |       |
+| c3    | varchar(10) | YES  |     | NULL    |       |
+| c4    | date        | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from z;
++------+------+------+------+
+| C1   | c2   | c3   | c4   |
++------+------+------+------+
+| X    | NULL | NULL | NULL |
+| y    | NULL | NULL | NULL |
++------+------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> alter table z add (c5 int primary key);
+ERROR 1062 (23000): Duplicate entry '0' for key 'z.PRIMARY'
+mysql> desc z;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| C1    | char(1)     | YES  |     | NULL    |       |
+| c2    | varchar(10) | YES  |     | NULL    |       |
+| c3    | varchar(10) | YES  |     | NULL    |       |
+| c4    | date        | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table z change c2 name varchar(10);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| C1    | char(1)     | YES  |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| c3    | varchar(10) | YES  |     | NULL    |       |
+| c4    | date        | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table z change c1 id int;
+ERROR 1366 (HY000): Incorrect integer value: 'X' for column 'id' at row 1
+mysql> alter table z change c1 id char(1);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | char(1)     | YES  |     | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| c3    | varchar(10) | YES  |     | NULL    |       |
+| c4    | date        | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table z change c3 address varchar(10);
+Query OK, 0 rows affected (0.41 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | char(1)     | YES  |     | NULL    |       |
+| name    | varchar(10) | YES  |     | NULL    |       |
+| address | varchar(10) | YES  |     | NULL    |       |
+| c4      | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table z modify id int first;
+ERROR 1366 (HY000): Incorrect integer value: 'X' for column 'id' at row 1
+mysql> alter table z modify name varchar(30) after id;
+Query OK, 0 rows affected (0.59 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | char(1)     | YES  |     | NULL    |       |
+| name    | varchar(30) | YES  |     | NULL    |       |
+| address | varchar(10) | YES  |     | NULL    |       |
+| c4      | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table z alter column name set default "MyName";
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | char(1)     | YES  |     | NULL    |       |
+| name    | varchar(30) | YES  |     | MyName  |       |
+| address | varchar(10) | YES  |     | NULL    |       |
+| c4      | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table z alter column address set default "addr";
+Query OK, 0 rows affected (0.19 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | char(1)     | YES  |     | NULL    |       |
+| name    | varchar(30) | YES  |     | MyName  |       |
+| address | varchar(10) | YES  |     | addr    |       |
+| c4      | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table z alter column name drop default;
+Query OK, 0 rows affected (0.30 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | char(1)     | YES  |     | NULL    |       |
+| name    | varchar(30) | YES  |     | NULL    |       |
+| address | varchar(10) | YES  |     | addr    |       |
+| c4      | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table z alter column address set invisible;
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++---------+-------------+------+-----+---------+-----------+
+| Field   | Type        | Null | Key | Default | Extra     |
++---------+-------------+------+-----+---------+-----------+
+| id      | char(1)     | YES  |     | NULL    |           |
+| name    | varchar(30) | YES  |     | NULL    |           |
+| address | varchar(10) | YES  |     | addr    | INVISIBLE |
+| c4      | date        | YES  |     | NULL    |           |
++---------+-------------+------+-----+---------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> alter table z alter column id set visible;
+Query OK, 0 rows affected (0.18 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++---------+-------------+------+-----+---------+-----------+
+| Field   | Type        | Null | Key | Default | Extra     |
++---------+-------------+------+-----+---------+-----------+
+| id      | char(1)     | YES  |     | NULL    |           |
+| name    | varchar(30) | YES  |     | NULL    |           |
+| address | varchar(10) | YES  |     | addr    | INVISIBLE |
+| c4      | date        | YES  |     | NULL    |           |
++---------+-------------+------+-----+---------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> alter table z rename column name to `Emp_name`;
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc z;
++----------+-------------+------+-----+---------+-----------+
+| Field    | Type        | Null | Key | Default | Extra     |
++----------+-------------+------+-----+---------+-----------+
+| id       | char(1)     | YES  |     | NULL    |           |
+| Emp_name | varchar(30) | YES  |     | NULL    |           |
+| address  | varchar(10) | YES  |     | addr    | INVISIBLE |
+| c4       | date        | YES  |     | NULL    |           |
++----------+-------------+------+-----+---------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> desc emp
+    -> ;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.09 sec)
+
+mysql> desc dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.07 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+5 rows in set (0.03 sec)
+
+mysql> select pwd, startedon from dept;
++------------+------------+
+| pwd        | startedon  |
++------------+------------+
+| r50mpm     | 24/03/1989 |
+| a12recmpm  | 12/04/1989 |
+| sales@2017 | 13/04/1989 |
+| opr@123    | 12/07/1989 |
+| PUN@8877   | 22/12/1989 |
++------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select deptno department_number, dname as department_name from dept;
++-------------------+-----------------+
+| department_number | department_name |
++-------------------+-----------------+
+|                10 | ACCOUNTING      |
+|                20 | RESEARCH        |
+|                30 | SALES           |
+|                40 | OPERATIONS      |
+|                50 | HR              |
++-------------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> select "hello";
++-------+
+| hello |
++-------+
+| hello |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select "hello" r1;
++-------+
+| r1    |
++-------+
+| hello |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select 1+1;
++-----+
+| 1+1 |
++-----+
+|   2 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> select 1+1 r1
+    -> ;
++----+
+| r1 |
++----+
+|  2 |
++----+
+1 row in set (0.00 sec)
+
+mysql> set @x=100;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> set @y=100;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select @x+@y;
++-------+
+| @x+@y |
++-------+
+|   200 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select @x+@y r1;
++------+
+| r1   |
++------+
+|  200 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select @x+@y total;
++-------+
+| total |
++-------+
+|   200 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select @x+@y total of 'x+y';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'of 'x+y'' at line 1
+mysql> select @x+@y 'total of x+y';
++--------------+
+| total of x+y |
++--------------+
+|          200 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select ename from emp;
++----------+
+| ename    |
++----------+
+| GITA     |
+| VRUSHALI |
+| SHARMIN  |
+| BANDISH  |
+| SMITH    |
+| AARAV    |
+| THOMAS   |
+| ALLEN    |
+| WARD     |
+| JONES    |
+| MARTIN   |
+| BLAKE    |
+| CLARK    |
+| SCOTT    |
+| KING     |
+| FRED     |
+| TURNER   |
+| ADAMS    |
+| JAMES    |
+| FORD     |
+| HOFFMAN  |
+| GRASS    |
+| MILLER   |
+| AARUSH   |
+| ALEX     |
+| NATASHA  |
+| SANGITA  |
+| SUPRIYA  |
++----------+
+28 rows in set (0.02 sec)
+
+mysql> select dname from dept;
++------------+
+| dname      |
++------------+
+| ACCOUNTING |
+| RESEARCH   |
+| SALES      |
+| OPERATIONS |
+| HR         |
++------------+
+5 rows in set (0.00 sec)
+
+mysql> select dname as"Dept_name" from dept;
++------------+
+| Dept_name  |
++------------+
+| ACCOUNTING |
+| RESEARCH   |
+| SALES      |
+| OPERATIONS |
+| HR         |
++------------+
+5 rows in set (0.00 sec)
+
+mysql> select dept_name R1, dept_No R2;
+ERROR 1054 (42S22): Unknown column 'dept_name' in 'field list'
+mysql> select dept_name R1, dept_No R2 from dept;
+ERROR 1054 (42S22): Unknown column 'dept_name' in 'field list'
+mysql> select dname R1, dept_No R2 from dept;
+ERROR 1054 (42S22): Unknown column 'dept_No' in 'field list'
+mysql> select dname R1, deptno R2 from dept;
++------------+----+
+| R1         | R2 |
++------------+----+
+| ACCOUNTING | 10 |
+| RESEARCH   | 20 |
+| SALES      | 30 |
+| OPERATIONS | 40 |
+| HR         | 50 |
++------------+----+
+5 rows in set (0.00 sec)
+
+mysql> select 1000+107;
++----------+
+| 1000+107 |
++----------+
+|     1107 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select 342*45234;
++-----------+
+| 342*45234 |
++-----------+
+|  15470028 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select 10001+'1';
++-----------+
+| 10001+'1' |
++-----------+
+|     10002 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select '10001'+'1';
++-------------+
+| '10001'+'1' |
++-------------+
+|       10002 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select 2/0;
++------+
+| 2/0  |
++------+
+| NULL |
++------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select 12+a12;
+ERROR 1054 (42S22): Unknown column 'a12' in 'field list'
+mysql> select 12+12a;
+ERROR 1054 (42S22): Unknown column '12a' in 'field list'
+mysql> select 12+'12a';
++----------+
+| 12+'12a' |
++----------+
+|       24 |
++----------+
+1 row in set, 1 warning (0.00 sec)
+
+=======================================================================================================================================================================
+

@@ -1,0 +1,2648 @@
+Microsoft Windows [Version 10.0.19045.5011]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\IET>mysql --user=dac103 --password =welcome
+Enter password: ***********************
+ERROR 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+
+C:\Users\IET>mysql --host 192.168.10.150 --port 3306 --user=dac103 --password=welcome
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 185
+Server version: 8.1.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select * from emp;
+ERROR 1046 (3D000): No database selected
+mysql> use dac103;
+Database changed
+mysql> select * from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.07 sec)
+
+mysql> desc emp
+    -> ;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp ename;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> select * from emp wher ename;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ename' at line 1
+mysql> select * ename from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ename from emp' at line 1
+mysql> select  ename from emp;
++----------+
+| ename    |
++----------+
+| GITA     |
+| VRUSHALI |
+| SHARMIN  |
+| BANDISH  |
+| SMITH    |
+| AARAV    |
+| THOMAS   |
+| ALLEN    |
+| WARD     |
+| JONES    |
+| MARTIN   |
+| BLAKE    |
+| CLARK    |
+| SCOTT    |
+| KING     |
+| FRED     |
+| TURNER   |
+| ADAMS    |
+| JAMES    |
+| FORD     |
+| HOFFMAN  |
+| GRASS    |
+| MILLER   |
+| AARUSH   |
+| ALEX     |
+| NATASHA  |
+| SANGITA  |
+| SUPRIYA  |
++----------+
+28 rows in set (0.00 sec)
+
+mysql> select  ename,job from emp;
++----------+---------------------+
+| ename    | job                 |
++----------+---------------------+
+| GITA     | Compliance officers |
+| VRUSHALI | Compliance officers |
+| SHARMIN  | Public Relation     |
+| BANDISH  | Public Relation     |
+| SMITH    | CLERK               |
+| AARAV    | CLERK               |
+| THOMAS   | CLERK               |
+| ALLEN    | SALESMAN            |
+| WARD     | SALESMAN            |
+| JONES    | MANAGER             |
+| MARTIN   | SALESMAN            |
+| BLAKE    | MANAGER             |
+| CLARK    | MANAGER             |
+| SCOTT    | ANALYST             |
+| KING     | PRESIDENT           |
+| FRED     | vice PRESIDENT      |
+| TURNER   | SALESMAN            |
+| ADAMS    | CLERK               |
+| JAMES    | CLERK               |
+| FORD     | ANALYST             |
+| HOFFMAN  | MANAGER             |
+| GRASS    | SALESMAN            |
+| MILLER   | CLERK               |
+| AARUSH   | SALESMAN            |
+| ALEX     | MANAGER             |
+| NATASHA  | CLERK               |
+| SANGITA  | Compliance officers |
+| SUPRIYA  | ANALYST             |
++----------+---------------------+
+28 rows in set (0.00 sec)
+
+mysql> desc dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+5 rows in set (0.06 sec)
+
+mysql> select dname from dept;
++------------+
+| dname      |
++------------+
+| ACCOUNTING |
+| RESEARCH   |
+| SALES      |
+| OPERATIONS |
+| HR         |
++------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT Empno, Ename AS "Employee Name", Sal FROM Emp;
++-------+---------------+------+
+| Empno | Employee Name | Sal  |
++-------+---------------+------+
+|  6001 | GITA          | 1750 |
+|  6129 | VRUSHALI      | 1750 |
+|  6473 | SHARMIN       | 1750 |
+|  6781 | BANDISH       | 1750 |
+|  7369 | SMITH         |  800 |
+|  7415 | AARAV         | 3350 |
+|  7421 | THOMAS        | 1750 |
+|  7499 | ALLEN         | 1600 |
+|  7521 | WARD          | 1250 |
+|  7566 | JONES         | 2975 |
+|  7654 | MARTIN        | 1250 |
+|  7698 | BLAKE         | 2850 |
+|  7782 | CLARK         | 2450 |
+|  7788 | SCOTT         | 3000 |
+|  7839 | KING          | 5000 |
+|  7840 | FRED          | 5000 |
+|  7844 | TURNER        | 1500 |
+|  7876 | ADAMS         | 1100 |
+|  7900 | JAMES         |  950 |
+|  7902 | FORD          | 3000 |
+|  7919 | HOFFMAN       | 4150 |
+|  7920 | GRASS         | 2575 |
+|  7934 | MILLER        | 1300 |
+|  7945 | AARUSH        | 1350 |
+|  7949 | ALEX          | 1250 |
+|  8433 | NATASHA       | 1750 |
+|  9400 | SANGITA       | 1750 |
+|  9473 | SUPRIYA       | 1750 |
++-------+---------------+------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT job,comm,ename as "job_title","Communication","emp_name" from emp;
++---------------------+------+-----------+---------------+----------+
+| job                 | comm | job_title | Communication | emp_name |
++---------------------+------+-----------+---------------+----------+
+| Compliance officers | NULL | GITA      | Communication | emp_name |
+| Compliance officers | NULL | VRUSHALI  | Communication | emp_name |
+| Public Relation     | NULL | SHARMIN   | Communication | emp_name |
+| Public Relation     | NULL | BANDISH   | Communication | emp_name |
+| CLERK               | NULL | SMITH     | Communication | emp_name |
+| CLERK               | NULL | AARAV     | Communication | emp_name |
+| CLERK               | NULL | THOMAS    | Communication | emp_name |
+| SALESMAN            |  300 | ALLEN     | Communication | emp_name |
+| SALESMAN            |  500 | WARD      | Communication | emp_name |
+| MANAGER             | NULL | JONES     | Communication | emp_name |
+| SALESMAN            | 1400 | MARTIN    | Communication | emp_name |
+| MANAGER             | NULL | BLAKE     | Communication | emp_name |
+| MANAGER             | NULL | CLARK     | Communication | emp_name |
+| ANALYST             | NULL | SCOTT     | Communication | emp_name |
+| PRESIDENT           | NULL | KING      | Communication | emp_name |
+| vice PRESIDENT      | NULL | FRED      | Communication | emp_name |
+| SALESMAN            |    0 | TURNER    | Communication | emp_name |
+| CLERK               | NULL | ADAMS     | Communication | emp_name |
+| CLERK               | NULL | JAMES     | Communication | emp_name |
+| ANALYST             | NULL | FORD      | Communication | emp_name |
+| MANAGER             | NULL | HOFFMAN   | Communication | emp_name |
+| SALESMAN            | 2700 | GRASS     | Communication | emp_name |
+| CLERK               | NULL | MILLER    | Communication | emp_name |
+| SALESMAN            | 2700 | AARUSH    | Communication | emp_name |
+| MANAGER             |  500 | ALEX      | Communication | emp_name |
+| CLERK               | NULL | NATASHA   | Communication | emp_name |
+| Compliance officers | NULL | SANGITA   | Communication | emp_name |
+| ANALYST             | NULL | SUPRIYA   | Communication | emp_name |
++---------------------+------+-----------+---------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT Job AS "Job Title", Comm AS "Commission", Ename AS "Employee Name"
+    -> FROM Emp;
++---------------------+------------+---------------+
+| Job Title           | Commission | Employee Name |
++---------------------+------------+---------------+
+| Compliance officers |       NULL | GITA          |
+| Compliance officers |       NULL | VRUSHALI      |
+| Public Relation     |       NULL | SHARMIN       |
+| Public Relation     |       NULL | BANDISH       |
+| CLERK               |       NULL | SMITH         |
+| CLERK               |       NULL | AARAV         |
+| CLERK               |       NULL | THOMAS        |
+| SALESMAN            |        300 | ALLEN         |
+| SALESMAN            |        500 | WARD          |
+| MANAGER             |       NULL | JONES         |
+| SALESMAN            |       1400 | MARTIN        |
+| MANAGER             |       NULL | BLAKE         |
+| MANAGER             |       NULL | CLARK         |
+| ANALYST             |       NULL | SCOTT         |
+| PRESIDENT           |       NULL | KING          |
+| vice PRESIDENT      |       NULL | FRED          |
+| SALESMAN            |          0 | TURNER        |
+| CLERK               |       NULL | ADAMS         |
+| CLERK               |       NULL | JAMES         |
+| ANALYST             |       NULL | FORD          |
+| MANAGER             |       NULL | HOFFMAN       |
+| SALESMAN            |       2700 | GRASS         |
+| CLERK               |       NULL | MILLER        |
+| SALESMAN            |       2700 | AARUSH        |
+| MANAGER             |        500 | ALEX          |
+| CLERK               |       NULL | NATASHA       |
+| Compliance officers |       NULL | SANGITA       |
+| ANALYST             |       NULL | SUPRIYA       |
++---------------------+------------+---------------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT Location AS "Location", Dname AS "Department Names"
+    -> FROM Dept;  -- Assuming the department names are in the Dept table
+ERROR 1054 (42S22): Unknown column 'Location' in 'field list'
+mysql> select *  from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT Loc AS "Location", Dname AS "Department Names"FROM Dept;
++----------+------------------+
+| Location | Department Names |
++----------+------------------+
+| NEW YORK | ACCOUNTING       |
+| DALLAS   | RESEARCH         |
+| CHICAGO  | SALES            |
+| BOSTON   | OPERATIONS       |
+| PUNE     | HR               |
++----------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> select mgr from emp;
++------+
+| mgr  |
++------+
+| NULL |
+| 7566 |
+| 7566 |
+| 7566 |
+| 7698 |
+| 7698 |
+| 7698 |
+| 7698 |
+| 7698 |
+| 7698 |
+| 7782 |
+| 7788 |
+| 7839 |
+| 7839 |
+| 7839 |
+| 7839 |
+| 7902 |
+| 7902 |
+| 7902 |
+| 7919 |
+| 7920 |
+| 7920 |
+| 7920 |
+| 7920 |
+| 7920 |
+| 7920 |
+| 7920 |
+| 7920 |
++------+
+28 rows in set (0.01 sec)
+
+mysql> select concat(empno, ' ', ename, ' ', mgr) as "concatenated info" from emp;
++--------------------+
+| concatenated info  |
++--------------------+
+| 6001 GITA 7920     |
+| 6129 VRUSHALI 7920 |
+| 6473 SHARMIN 7920  |
+| 6781 BANDISH 7920  |
+| 7369 SMITH 7902    |
+| 7415 AARAV 7902    |
+| 7421 THOMAS 7920   |
+| 7499 ALLEN 7698    |
+| 7521 WARD 7698     |
+| 7566 JONES 7839    |
+| 7654 MARTIN 7698   |
+| 7698 BLAKE 7839    |
+| 7782 CLARK 7839    |
+| 7788 SCOTT 7566    |
+| NULL               |
+| 7840 FRED 7839     |
+| 7844 TURNER 7698   |
+| 7876 ADAMS 7788    |
+| 7900 JAMES 7698    |
+| 7902 FORD 7566     |
+| 7919 HOFFMAN 7566  |
+| 7920 GRASS 7919    |
+| 7934 MILLER 7782   |
+| 7945 AARUSH 7902   |
+| 7949 ALEX 7698     |
+| 8433 NATASHA 7920  |
+| 9400 SANGITA 7920  |
+| 9473 SUPRIYA 7920  |
++--------------------+
+28 rows in set (0.00 sec)
+
+mysql> select concat_ws(',', empno, ename, job, mgr, hiredate, sal, comm, deptno) as "employee data"from emp;
++-----------------------------------------------------------+
+| employee data                                             |
++-----------------------------------------------------------+
+| 6001,GITA,Compliance officers,7920,1981-07-19,1750,30     |
+| 6129,VRUSHALI,Compliance officers,7920,1981-07-19,1750,50 |
+| 6473,SHARMIN,Public Relation,7920,1981-07-19,1750,20      |
+| 6781,BANDISH,Public Relation,7920,1981-07-19,1750,20      |
+| 7369,SMITH,CLERK,7902,1980-12-17,800,20                   |
+| 7415,AARAV,CLERK,7902,1981-12-31,3350,10                  |
+| 7421,THOMAS,CLERK,7920,1981-07-19,1750,10                 |
+| 7499,ALLEN,SALESMAN,7698,1981-02-20,1600,300,30           |
+| 7521,WARD,SALESMAN,7698,1981-02-22,1250,500,30            |
+| 7566,JONES,MANAGER,7839,1981-04-02,2975,20                |
+| 7654,MARTIN,SALESMAN,7698,1981-09-28,1250,1400,30         |
+| 7698,BLAKE,MANAGER,7839,1981-05-01,2850,30                |
+| 7782,CLARK,MANAGER,7839,1981-06-09,2450,10                |
+| 7788,SCOTT,ANALYST,7566,1982-12-09,3000,20                |
+| 7839,KING,PRESIDENT,1981-11-17,5000,10                    |
+| 7840,FRED,vice PRESIDENT,7839,1983-08-09,5000,20          |
+| 7844,TURNER,SALESMAN,7698,1981-09-08,1500,0,30            |
+| 7876,ADAMS,CLERK,7788,1983-01-12,1100,20                  |
+| 7900,JAMES,CLERK,7698,1981-12-03,950,30                   |
+| 7902,FORD,ANALYST,7566,1981-12-03,3000,20                 |
+| 7919,HOFFMAN,MANAGER,7566,1982-03-24,4150,30              |
+| 7920,GRASS,SALESMAN,7919,1980-02-14,2575,2700,30          |
+| 7934,MILLER,CLERK,7782,1982-01-23,1300,10                 |
+| 7945,AARUSH,SALESMAN,7902,1980-02-14,1350,2700,30         |
+| 7949,ALEX,MANAGER,7698,1982-01-24,1250,500,30             |
+| 8433,NATASHA,CLERK,7920,1981-07-19,1750,30                |
+| 9400,SANGITA,Compliance officers,7920,1981-07-19,1750,50  |
+| 9473,SUPRIYA,ANALYST,7920,1981-07-19,1750,50              |
++-----------------------------------------------------------+
+28 rows in set (0.00 sec)
+
+mysql> select concat_ws(',', empno, ename, job, mgr, hiredate, sal, comm, deptno) as "employee data" (new_salary - old_salary) as "salary difference"from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(new_salary - old_salary) as "salary difference"from emp' at line 1
+mysql> SELECT Ename || ' earns ' || Sal || ' monthly, but wants salary ' || (3 * Sal) AS "Dream Salaries"
+    -> FROM Emp;
++----------------+
+| Dream Salaries |
++----------------+
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
+|              1 |
++----------------+
+28 rows in set, 33 warnings (0.00 sec)
+
+mysql> SELECT Ename + ' earns ' + CAST(Sal AS VARCHAR) + ' monthly, but wants salary ' + CAST((3 * Sal) AS VARCHAR) AS "Dream Salaries"
+    -> FROM Emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCHAR) + ' monthly, but wants salary ' + CAST((3 * Sal) AS VARCHAR) AS "Dream ' at line 1
+mysql> SELECT CONCAT(Ename, ' earns ', Sal, ' monthly, but wants salary ', (3 * Sal)) AS "Dream Salaries"
+    -> FROM Emp;
++----------------------------------------------------+
+| Dream Salaries                                     |
++----------------------------------------------------+
+| GITA earns 1750 monthly, but wants salary 5250     |
+| VRUSHALI earns 1750 monthly, but wants salary 5250 |
+| SHARMIN earns 1750 monthly, but wants salary 5250  |
+| BANDISH earns 1750 monthly, but wants salary 5250  |
+| SMITH earns 800 monthly, but wants salary 2400     |
+| AARAV earns 3350 monthly, but wants salary 10050   |
+| THOMAS earns 1750 monthly, but wants salary 5250   |
+| ALLEN earns 1600 monthly, but wants salary 4800    |
+| WARD earns 1250 monthly, but wants salary 3750     |
+| JONES earns 2975 monthly, but wants salary 8925    |
+| MARTIN earns 1250 monthly, but wants salary 3750   |
+| BLAKE earns 2850 monthly, but wants salary 8550    |
+| CLARK earns 2450 monthly, but wants salary 7350    |
+| SCOTT earns 3000 monthly, but wants salary 9000    |
+| KING earns 5000 monthly, but wants salary 15000    |
+| FRED earns 5000 monthly, but wants salary 15000    |
+| TURNER earns 1500 monthly, but wants salary 4500   |
+| ADAMS earns 1100 monthly, but wants salary 3300    |
+| JAMES earns 950 monthly, but wants salary 2850     |
+| FORD earns 3000 monthly, but wants salary 9000     |
+| HOFFMAN earns 4150 monthly, but wants salary 12450 |
+| GRASS earns 2575 monthly, but wants salary 7725    |
+| MILLER earns 1300 monthly, but wants salary 3900   |
+| AARUSH earns 1350 monthly, but wants salary 4050   |
+| ALEX earns 1250 monthly, but wants salary 3750     |
+| NATASHA earns 1750 monthly, but wants salary 5250  |
+| SANGITA earns 1750 monthly, but wants salary 5250  |
+| SUPRIYA earns 1750 monthly, but wants salary 5250  |
++----------------------------------------------------+
+28 rows in set (0.00 sec)
+
+mysql> select job from emp;
++---------------------+
+| job                 |
++---------------------+
+| Compliance officers |
+| Compliance officers |
+| Public Relation     |
+| Public Relation     |
+| CLERK               |
+| CLERK               |
+| CLERK               |
+| SALESMAN            |
+| SALESMAN            |
+| MANAGER             |
+| SALESMAN            |
+| MANAGER             |
+| MANAGER             |
+| ANALYST             |
+| PRESIDENT           |
+| vice PRESIDENT      |
+| SALESMAN            |
+| CLERK               |
+| CLERK               |
+| ANALYST             |
+| MANAGER             |
+| SALESMAN            |
+| CLERK               |
+| SALESMAN            |
+| MANAGER             |
+| CLERK               |
+| Compliance officers |
+| ANALYST             |
++---------------------+
+28 rows in set (0.00 sec)
+
+mysql>
+mysql> SELECT  SaleID AS "Sale ID",  ProductName AS "Product Name", Quantity AS "Quantity Sold", SaleDate AS "Sale Date", Amount AS "Total Amount"FROM sales;
+ERROR 1054 (42S22): Unknown column 'SaleID' in 'field list'
+mysql> show tables;
++------------------------+
+| Tables_in_dac103       |
++------------------------+
+| a                      |
+| agent                  |
+| andor                  |
+| b                      |
+| batch_students         |
+| blanktablea            |
+| blanktableb            |
+| blog                   |
+| bonus                  |
+| books                  |
+| candidate              |
+| client                 |
+| coalesce               |
+| comments               |
+| company                |
+| course                 |
+| course_batches         |
+| course_modules         |
+| customer               |
+| customers              |
+| demodept1              |
+| demodept2              |
+| dept                   |
+| dept1                  |
+| docs                   |
+| doctor                 |
+| doctorvisits           |
+| dummy                  |
+| duplicate              |
+| emp                    |
+| emp1                   |
+| emp2                   |
+| emp_attendance         |
+| emp_cards              |
+| emp_phone              |
+| empj                   |
+| envelope               |
+| faculty                |
+| faculty_address        |
+| faculty_phone          |
+| faculty_qualifications |
+| food                   |
+| fullname               |
+| hobby                  |
+| item                   |
+| job_list               |
+| key_parts              |
+| labtestlist            |
+| leadtable              |
+| licence                |
+| location               |
+| mass_table             |
+| medicinelist           |
+| menucard               |
+| modules                |
+| nearest                |
+| new                    |
+| newbooks               |
+| nullif                 |
+| numbers                |
+| numberstring           |
+| ord                    |
+| orderdetails           |
+| orders                 |
+| overtime               |
+| patient                |
+| phonecall              |
+| pivot_table            |
+| plumber                |
+| plumber_service_map    |
+| points                 |
+| price                  |
+| product                |
+| product_sales          |
+| products               |
+| quarterly_revenue      |
+| r                      |
+| r1                     |
+| r2                     |
+| races                  |
+| regexpr                |
+| replacedept            |
+| revenue                |
+| rockets                |
+| runners                |
+| runningserver          |
+| sales                  |
+| sales_channel          |
+| salespeople            |
+| salesperson            |
+| salgrade               |
+| server                 |
+| service                |
+| seta                   |
+| setb                   |
+| shop                   |
+| softdrink              |
+| sort                   |
+| sourcenames            |
+| stadium                |
+| states                 |
+| station                |
+| status                 |
+| stringnumber           |
+| student                |
+| student_address        |
+| student_cards          |
+| student_order          |
+| student_phone          |
+| student_qualifications |
+| tablea                 |
+| tableaa                |
+| tableb                 |
+| tablebb                |
+| targetnames            |
+| tasks                  |
+| temp1                  |
+| traintimetable         |
+| transactions           |
+| vote_response          |
+| votes                  |
+| warehouse              |
+| yearly_revenue         |
+| z                      |
++------------------------+
+124 rows in set (0.01 sec)
+
+mysql> select * from sales;
++-------+--------+----------------------------------------------+--------+-------------------------+----------+
+| REPID | CUSTID | CUSTNAME                                     | PRODID | PRODNAME                | AMOUNT   |
++-------+--------+----------------------------------------------+--------+-------------------------+----------+
+|  7844 |    100 | JOCKSPORTS                                   | 102130 | RH: "GUIDE TO TENNIS"   |  1703.40 |
+|  7844 |    100 | JOCKSPORTS                                   | 100861 | ACE TENNIS RACKET II    |   485.00 |
+|  7844 |    100 | JOCKSPORTS                                   | 100870 | ACE TENNIS BALLS-3 PACK |   292.50 |
+|  7844 |    100 | JOCKSPORTS                                   | 100890 | ACE TENNIS NET          |    50.00 |
+|  7844 |    100 | JOCKSPORTS                                   | 100860 | ACE TENNIS RACKET I     |   350.00 |
+|  7844 |    100 | JOCKSPORTS                                   | 200376 | SB ENERGY BAR-6 PACK    |  2400.00 |
+|  7521 |    101 | TKB SPORT SHOP                               | 100860 | ACE TENNIS RACKET I     |    35.00 |
+|  7521 |    101 | TKB SPORT SHOP                               | 100870 | ACE TENNIS BALLS-3 PACK |     8.40 |
+|  7521 |    101 | TKB SPORT SHOP                               | 100890 | ACE TENNIS NET          |    58.00 |
+|  7654 |    102 | VOLLYRITE                                    | 100870 | ACE TENNIS BALLS-3 PACK |  3306.00 |
+|  7654 |    102 | VOLLYRITE                                    | 100860 | ACE TENNIS RACKET I     | 16569.00 |
+|  7654 |    102 | VOLLYRITE                                    | 100861 | ACE TENNIS RACKET II    |  2300.50 |
+|  7654 |    102 | VOLLYRITE                                    | 100871 | ACE TENNIS BALLS-6 PACK |  5600.00 |
+|  7521 |    103 | JUST TENNIS                                  | 100861 | ACE TENNIS RACKET II    |   450.00 |
+|  7521 |    103 | JUST TENNIS                                  | 100870 | ACE TENNIS BALLS-3 PACK |   140.00 |
+|  7521 |    103 | JUST TENNIS                                  | 100890 | ACE TENNIS NET          |   116.00 |
+|  7521 |    103 | JUST TENNIS                                  | 102130 | RH: "GUIDE TO TENNIS"   |    34.00 |
+|  7521 |    103 | JUST TENNIS                                  | 200376 | SB ENERGY BAR-6 PACK    |    24.00 |
+|  7499 |    104 | EVERY MOUNTAIN                               | 100871 | ACE TENNIS BALLS-6 PACK |   846.80 |
+|  7499 |    104 | EVERY MOUNTAIN                               | 101860 | SP TENNIS RACKET        |    24.00 |
+|  7499 |    104 | EVERY MOUNTAIN                               | 100860 | ACE TENNIS RACKET I     |  3000.00 |
+|  7499 |    104 | EVERY MOUNTAIN                               | 100861 | ACE TENNIS RACKET II    |   810.00 |
+|  7499 |    104 | EVERY MOUNTAIN                               | 101863 | SP JUNIOR RACKET        |  1500.00 |
+|  7499 |    104 | EVERY MOUNTAIN                               | 200380 | SB VITA SNACK-6 PACK    |   400.00 |
+|  7499 |    104 | EVERY MOUNTAIN                               | 200376 | SB ENERGY BAR-6 PACK    |   240.00 |
+|  7499 |    104 | EVERY MOUNTAIN                               | 102130 | RH: "GUIDE TO TENNIS"   |   340.00 |
+|  7844 |    105 | K + T SPORTS                                 | 100860 | ACE TENNIS RACKET I     |  1750.00 |
+|  7844 |    105 | K + T SPORTS                                 | 100861 | ACE TENNIS RACKET II    |  4500.00 |
+|  7844 |    105 | K + T SPORTS                                 | 100870 | ACE TENNIS BALLS-3 PACK |  1400.00 |
+|  7844 |    105 | K + T SPORTS                                 | 100871 | ACE TENNIS BALLS-6 PACK |  2800.00 |
+|  7844 |    105 | K + T SPORTS                                 | 100890 | ACE TENNIS NET          | 29000.00 |
+|  7844 |    105 | K + T SPORTS                                 | 101860 | SP TENNIS RACKET        |  2400.00 |
+|  7844 |    105 | K + T SPORTS                                 | 101863 | SP JUNIOR RACKET        |  2500.00 |
+|  7844 |    105 | K + T SPORTS                                 | 102130 | RH: "GUIDE TO TENNIS"   |   340.00 |
+|  7844 |    105 | K + T SPORTS                                 | 200376 | SB ENERGY BAR-6 PACK    |   480.00 |
+|  7844 |    105 | K + T SPORTS                                 | 200380 | SB VITA SNACK-6 PACK    |  1200.00 |
+|  7521 |    106 | SHAPE UP                                     | 200376 | SB ENERGY BAR-6 PACK    |     2.40 |
+|  7521 |    106 | SHAPE UP                                     | 100890 | ACE TENNIS NET          |   464.00 |
+|  7521 |    106 | SHAPE UP                                     | 100861 | ACE TENNIS RACKET II    |  4584.00 |
+|  7521 |    106 | SHAPE UP                                     | 100860 | ACE TENNIS RACKET I     |   440.00 |
+|  7521 |    106 | SHAPE UP                                     | 100870 | ACE TENNIS BALLS-3 PACK |  1400.00 |
+|  7521 |    106 | SHAPE UP                                     | 101860 | SP TENNIS RACKET        |  1200.00 |
+|  7521 |    106 | SHAPE UP                                     | 101863 | SP JUNIOR RACKET        |   900.00 |
+|  7521 |    106 | SHAPE UP                                     | 102130 | RH: "GUIDE TO TENNIS"   |    34.00 |
+|  7499 |    107 | WOMENS SPORTS                                | 100861 | ACE TENNIS RACKET II    |   180.00 |
+|  7499 |    107 | WOMENS SPORTS                                | 100870 | ACE TENNIS BALLS-3 PACK |   280.00 |
+|  7499 |    107 | WOMENS SPORTS                                | 100871 | ACE TENNIS BALLS-6 PACK |   250.00 |
+|  7844 |    108 | NORTH WOODS HEALTH AND FITNESS SUPPLY CENTER | 100871 | ACE TENNIS BALLS-6 PACK |   560.00 |
+|  7844 |    108 | NORTH WOODS HEALTH AND FITNESS SUPPLY CENTER | 101860 | SP TENNIS RACKET        |  4800.00 |
+|  7844 |    108 | NORTH WOODS HEALTH AND FITNESS SUPPLY CENTER | 200380 | SB VITA SNACK-6 PACK    |   600.00 |
+|  7844 |    108 | NORTH WOODS HEALTH AND FITNESS SUPPLY CENTER | 200376 | SB ENERGY BAR-6 PACK    |   440.00 |
++-------+--------+----------------------------------------------+--------+-------------------------+----------+
+51 rows in set (0.13 sec)
+
+mysql> SELECT
+    ->     REPID AS "Report ID",
+    ->     CUSTID AS "Customer ID",
+    ->     CUSTNAME AS "Customer Name",
+    ->     PRODID AS "Product ID",
+    ->     PRODNAME AS "Product Name",
+    ->     AMOUNT AS "Amount"
+    -> FROM
+    ->     sales;
++-----------+-------------+----------------------------------------------+------------+-------------------------+----------+
+| Report ID | Customer ID | Customer Name                                | Product ID | Product Name            | Amount   |
++-----------+-------------+----------------------------------------------+------------+-------------------------+----------+
+|      7844 |         100 | JOCKSPORTS                                   |     102130 | RH: "GUIDE TO TENNIS"   |  1703.40 |
+|      7844 |         100 | JOCKSPORTS                                   |     100861 | ACE TENNIS RACKET II    |   485.00 |
+|      7844 |         100 | JOCKSPORTS                                   |     100870 | ACE TENNIS BALLS-3 PACK |   292.50 |
+|      7844 |         100 | JOCKSPORTS                                   |     100890 | ACE TENNIS NET          |    50.00 |
+|      7844 |         100 | JOCKSPORTS                                   |     100860 | ACE TENNIS RACKET I     |   350.00 |
+|      7844 |         100 | JOCKSPORTS                                   |     200376 | SB ENERGY BAR-6 PACK    |  2400.00 |
+|      7521 |         101 | TKB SPORT SHOP                               |     100860 | ACE TENNIS RACKET I     |    35.00 |
+|      7521 |         101 | TKB SPORT SHOP                               |     100870 | ACE TENNIS BALLS-3 PACK |     8.40 |
+|      7521 |         101 | TKB SPORT SHOP                               |     100890 | ACE TENNIS NET          |    58.00 |
+|      7654 |         102 | VOLLYRITE                                    |     100870 | ACE TENNIS BALLS-3 PACK |  3306.00 |
+|      7654 |         102 | VOLLYRITE                                    |     100860 | ACE TENNIS RACKET I     | 16569.00 |
+|      7654 |         102 | VOLLYRITE                                    |     100861 | ACE TENNIS RACKET II    |  2300.50 |
+|      7654 |         102 | VOLLYRITE                                    |     100871 | ACE TENNIS BALLS-6 PACK |  5600.00 |
+|      7521 |         103 | JUST TENNIS                                  |     100861 | ACE TENNIS RACKET II    |   450.00 |
+|      7521 |         103 | JUST TENNIS                                  |     100870 | ACE TENNIS BALLS-3 PACK |   140.00 |
+|      7521 |         103 | JUST TENNIS                                  |     100890 | ACE TENNIS NET          |   116.00 |
+|      7521 |         103 | JUST TENNIS                                  |     102130 | RH: "GUIDE TO TENNIS"   |    34.00 |
+|      7521 |         103 | JUST TENNIS                                  |     200376 | SB ENERGY BAR-6 PACK    |    24.00 |
+|      7499 |         104 | EVERY MOUNTAIN                               |     100871 | ACE TENNIS BALLS-6 PACK |   846.80 |
+|      7499 |         104 | EVERY MOUNTAIN                               |     101860 | SP TENNIS RACKET        |    24.00 |
+|      7499 |         104 | EVERY MOUNTAIN                               |     100860 | ACE TENNIS RACKET I     |  3000.00 |
+|      7499 |         104 | EVERY MOUNTAIN                               |     100861 | ACE TENNIS RACKET II    |   810.00 |
+|      7499 |         104 | EVERY MOUNTAIN                               |     101863 | SP JUNIOR RACKET        |  1500.00 |
+|      7499 |         104 | EVERY MOUNTAIN                               |     200380 | SB VITA SNACK-6 PACK    |   400.00 |
+|      7499 |         104 | EVERY MOUNTAIN                               |     200376 | SB ENERGY BAR-6 PACK    |   240.00 |
+|      7499 |         104 | EVERY MOUNTAIN                               |     102130 | RH: "GUIDE TO TENNIS"   |   340.00 |
+|      7844 |         105 | K + T SPORTS                                 |     100860 | ACE TENNIS RACKET I     |  1750.00 |
+|      7844 |         105 | K + T SPORTS                                 |     100861 | ACE TENNIS RACKET II    |  4500.00 |
+|      7844 |         105 | K + T SPORTS                                 |     100870 | ACE TENNIS BALLS-3 PACK |  1400.00 |
+|      7844 |         105 | K + T SPORTS                                 |     100871 | ACE TENNIS BALLS-6 PACK |  2800.00 |
+|      7844 |         105 | K + T SPORTS                                 |     100890 | ACE TENNIS NET          | 29000.00 |
+|      7844 |         105 | K + T SPORTS                                 |     101860 | SP TENNIS RACKET        |  2400.00 |
+|      7844 |         105 | K + T SPORTS                                 |     101863 | SP JUNIOR RACKET        |  2500.00 |
+|      7844 |         105 | K + T SPORTS                                 |     102130 | RH: "GUIDE TO TENNIS"   |   340.00 |
+|      7844 |         105 | K + T SPORTS                                 |     200376 | SB ENERGY BAR-6 PACK    |   480.00 |
+|      7844 |         105 | K + T SPORTS                                 |     200380 | SB VITA SNACK-6 PACK    |  1200.00 |
+|      7521 |         106 | SHAPE UP                                     |     200376 | SB ENERGY BAR-6 PACK    |     2.40 |
+|      7521 |         106 | SHAPE UP                                     |     100890 | ACE TENNIS NET          |   464.00 |
+|      7521 |         106 | SHAPE UP                                     |     100861 | ACE TENNIS RACKET II    |  4584.00 |
+|      7521 |         106 | SHAPE UP                                     |     100860 | ACE TENNIS RACKET I     |   440.00 |
+|      7521 |         106 | SHAPE UP                                     |     100870 | ACE TENNIS BALLS-3 PACK |  1400.00 |
+|      7521 |         106 | SHAPE UP                                     |     101860 | SP TENNIS RACKET        |  1200.00 |
+|      7521 |         106 | SHAPE UP                                     |     101863 | SP JUNIOR RACKET        |   900.00 |
+|      7521 |         106 | SHAPE UP                                     |     102130 | RH: "GUIDE TO TENNIS"   |    34.00 |
+|      7499 |         107 | WOMENS SPORTS                                |     100861 | ACE TENNIS RACKET II    |   180.00 |
+|      7499 |         107 | WOMENS SPORTS                                |     100870 | ACE TENNIS BALLS-3 PACK |   280.00 |
+|      7499 |         107 | WOMENS SPORTS                                |     100871 | ACE TENNIS BALLS-6 PACK |   250.00 |
+|      7844 |         108 | NORTH WOODS HEALTH AND FITNESS SUPPLY CENTER |     100871 | ACE TENNIS BALLS-6 PACK |   560.00 |
+|      7844 |         108 | NORTH WOODS HEALTH AND FITNESS SUPPLY CENTER |     101860 | SP TENNIS RACKET        |  4800.00 |
+|      7844 |         108 | NORTH WOODS HEALTH AND FITNESS SUPPLY CENTER |     200380 | SB VITA SNACK-6 PACK    |   600.00 |
+|      7844 |         108 | NORTH WOODS HEALTH AND FITNESS SUPPLY CENTER |     200376 | SB ENERGY BAR-6 PACK    |   440.00 |
++-----------+-------------+----------------------------------------------+------------+-------------------------+----------+
+51 rows in set (0.00 sec)
+
+
+mysql> select * from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> select ename, job, hiredate from emp where hiredate between '1981-02-01' and '1981-05-31';
++-------+----------+------------+
+| ename | job      | hiredate   |
++-------+----------+------------+
+| ALLEN | SALESMAN | 1981-02-20 |
+| WARD  | SALESMAN | 1981-02-22 |
+| JONES | MANAGER  | 1981-04-02 |
+| BLAKE | MANAGER  | 1981-05-01 |
++-------+----------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select ename, hiredate from emp where year(hiredate)='1982' ;
++---------+------------+
+| ename   | hiredate   |
++---------+------------+
+| SCOTT   | 1982-12-09 |
+| HOFFMAN | 1982-03-24 |
+| MILLER  | 1982-01-23 |
+| ALEX    | 1982-01-24 |
++---------+------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select now(), curdate(), curtime();
++---------------------+------------+-----------+
+| now()               | curdate()  | curtime() |
++---------------------+------------+-----------+
+| 2024-10-19 20:23:14 | 2024-10-19 | 20:23:14  |
++---------------------+------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select now(), curdate();
++---------------------+------------+
+| now()               | curdate()  |
++---------------------+------------+
+| 2024-10-19 20:23:28 | 2024-10-19 |
++---------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select  curdate();
++------------+
+| curdate()  |
++------------+
+| 2024-10-19 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select  curdate() as current_date;
+
++--------------+
+| Current Date |
++--------------+
+| 2024-10-19   |
++--------------+
+1 row in set (0.00 sec)
+
+
+mysql> select curdate();
++------------+
+| curdate()  |
++------------+
+| 2024-10-20 |
++------------+
+1 row in set (0.01 sec)
+
+mysql> select SELECT DAYNAME(CURDATE()) AS current_day;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT DAYNAME(CURDATE()) AS current_day' at line 1
+mysql> SELECT DAYNAME(CURDATE()) AS current_day;
++-------------+
+| current_day |
++-------------+
+| Sunday      |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATENAME(WEEKDAY, GETDATE()) AS current_day;
+ERROR 1305 (42000): FUNCTION dac103.DATENAME does not exist
+mysql> SELECT DAYNAME(CURDATE()) AS current_day;
++-------------+
+| current_day |
++-------------+
+| Sunday      |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT* from emp where month='12';
+ERROR 1054 (42S22): Unknown column 'month' in 'where clause'
+mysql> select *from employees where month(join_date) = 12;
+ERROR 1146 (42S02): Table 'dac103.employees' doesn't exist
+mysql> select *from emp where month(join_date) = 12;
+ERROR 1054 (42S22): Unknown column 'join_date' in 'where clause'
+mysql> select * from emp
+    -> ;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.03 sec)
+
+mysql> select *from emp where month(hiredate) = 12;
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME | GENDER | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  7369 | SMITH | M      | CLERK   | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV | M      | CLERK   | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7788 | SCOTT | M      | ANALYST | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7900 | JAMES | M      | CLERK   | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD  | M      | ANALYST | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select from emp where ename(king);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from emp where ename(king)' at line 1
+mysql> select dayname(hiredate) as join_day from emp where  ename = 'king';
++----------+
+| join_day |
++----------+
+| Tuesday  |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select Monthname(hiredate) as join_day from emp where  ename = 'martin';
++-----------+
+| join_day  |
++-----------+
+| September |
++-----------+
+1 row in set (0.00 sec)
+
+
+mysql> selct * from dept;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selct * from dept' at line 1
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+5 rows in set (0.05 sec)
+
+mysql> select upper(ename) as employee_name, date_format(hiredate, '%w %m, %y') as formatted_join_date from emp where deptno= 10;
++---------------+---------------------+
+| employee_name | formatted_join_date |
++---------------+---------------------+
+| AARAV         | 4 12, 81            |
+| THOMAS        | 0 07, 81            |
+| CLARK         | 2 06, 81            |
+| KING          | 2 11, 81            |
+| MILLER        | 6 01, 82            |
++---------------+---------------------+
+5 rows in set (0.04 sec)
+
+mysql> select *from orders where year(order_date) = 1986;
+ERROR 1054 (42S22): Unknown column 'order_date' in 'where clause'
+mysql> select *from orders ;
++------+---------+---------------------+------+------+--------+
+| ONUM | AMT     | ODATE               | CNUM | SNUM | type   |
++------+---------+---------------------+------+------+--------+
+| 3001 |   18.69 | 1996-10-03 12:30:00 | 2008 | 1007 | Online |
+| 3002 |  1900.1 | 1996-10-03 12:05:00 | 2007 | 1004 | Online |
+| 3003 |  767.19 | 1996-10-03 13:45:00 | 2001 | 1001 | Online |
+| 3005 | 5160.45 | 1996-10-03 14:00:00 | 2003 | 1002 | Online |
+| 3006 | 1098.16 | 1996-10-03 13:37:00 | 2008 | 1007 | Online |
+| 3007 |   75.75 | 1996-10-04 16:02:00 | 2002 | 1003 | Online |
+| 3008 |    4723 | 1996-10-05 12:07:00 | 2006 | 1001 | Online |
+| 3009 | 1713.23 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3010 | 1309.95 | 1996-10-06 13:12:00 | 2004 | 1002 | Online |
+| 3011 | 9891.88 | 1996-10-06 13:09:00 | 2006 | 1001 | Online |
+| 3012 | 3455.78 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3013 | 1245.98 | 1996-10-04 16:32:00 | 2002 | 1003 | Online |
+| 3014 | 3721.53 | 1996-10-05 12:45:00 | 2006 | 1001 | Online |
+| 3015 |   734.5 | 1996-10-06 13:16:00 | 2004 | 1002 | Online |
+| 3016 | 1729.67 | 1996-10-06 13:07:00 | 2006 | 1001 | Online |
+| 3017 |   18.69 | 1996-10-03 12:30:00 | 2001 | 1007 | Online |
+| 3018 |  767.19 | 1996-10-03 13:45:00 | 2002 | 1001 | Online |
+| 3019 |  1900.1 | 1996-10-03 12:05:00 | 2007 | 1004 | Online |
+| 3020 | 5160.45 | 1996-10-03 14:00:00 | 2003 | 1007 | Online |
+| 3021 | 1098.16 | 1996-10-03 13:37:00 | 2008 | 1007 | Online |
+| 3022 | 1713.23 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3023 |   75.75 | 1996-10-04 16:02:00 | 2002 | 1004 | Online |
+| 3024 |    4723 | 1996-10-05 12:07:00 | 2006 | 1002 | Online |
+| 3025 | 1309.95 | 1996-10-06 13:12:00 | 2002 | 1002 | Online |
+| 3026 | 9891.88 | 1996-10-06 13:09:00 | 2006 | 1001 | Online |
+| 3027 | 3455.78 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3028 | 1245.98 | 1996-10-04 16:32:00 | 2002 | 1003 | Online |
+| 3029 | 3721.53 | 1996-10-05 12:45:00 | 2006 | 1001 | Online |
+| 3030 |   734.5 | 1996-10-06 13:16:00 | 2004 | 1002 | Online |
+| 3031 | 1729.67 | 1996-10-06 13:07:00 | 2006 | 1007 | Online |
+| 3032 |    3434 | 1996-01-26 17:09:12 | 2006 | 1007 | Online |
+| 3033 |     522 | 1996-12-24 14:23:00 | 2002 | 1002 | Online |
+| 3049 |     500 | 1996-03-14 07:45:19 | 2001 | 1003 | Online |
+| 3074 |     457 | 1996-04-19 05:13:00 | 2008 | 1007 | Online |
+| 3119 |     125 | 1996-07-26 18:37:00 | 2007 | 1001 | Online |
+| 4001 |     145 | 1996-05-13 20:47:00 | 2008 | 1003 | Online |
+| 4012 |     245 | 1996-03-06 13:07:00 | 2001 | 1002 | Online |
+| 4021 |     600 | 1996-08-12 13:07:00 | 2001 | 1002 | Online |
+| 4054 |    1200 | 1996-11-22 13:07:00 | 2004 | 1003 | Online |
+| 5011 |     138 | 1996-09-14 13:07:00 | 2001 | 1007 | Online |
+| 5014 |     980 | 1996-08-23 13:07:00 | 2002 | 1007 | Online |
+| 5015 |    2133 | 1996-06-23 13:07:00 | 2004 | 1007 | Online |
+| 5016 |    1000 | 1996-03-12 13:07:00 | 2002 | 1007 | Online |
+| 5053 |    1500 | 1996-01-01 13:07:00 | 2006 | 1007 | Online |
+| 5099 |     790 | 1996-04-24 13:07:00 | 2002 | 1007 | Online |
+| 6501 |     125 | 1996-06-13 13:07:00 | 2001 | 1001 | Online |
+| 6502 |     535 | 1996-08-24 13:07:00 | 2006 | 1004 | Online |
+| 6503 |    1100 | 1996-07-26 13:07:00 | 2006 | 1007 | Online |
+| 6504 |    1350 | 1996-07-21 13:07:00 | 2008 | 1007 | Online |
++------+---------+---------------------+------+------+--------+
+49 rows in set (0.03 sec)
+
+mysql> select *from orders where year(odate) = 1986;
+Empty set (0.00 sec)
+
+mysql> select *from orders where year(odate) = 1996;
++------+---------+---------------------+------+------+--------+
+| ONUM | AMT     | ODATE               | CNUM | SNUM | type   |
++------+---------+---------------------+------+------+--------+
+| 3001 |   18.69 | 1996-10-03 12:30:00 | 2008 | 1007 | Online |
+| 3002 |  1900.1 | 1996-10-03 12:05:00 | 2007 | 1004 | Online |
+| 3003 |  767.19 | 1996-10-03 13:45:00 | 2001 | 1001 | Online |
+| 3005 | 5160.45 | 1996-10-03 14:00:00 | 2003 | 1002 | Online |
+| 3006 | 1098.16 | 1996-10-03 13:37:00 | 2008 | 1007 | Online |
+| 3007 |   75.75 | 1996-10-04 16:02:00 | 2002 | 1003 | Online |
+| 3008 |    4723 | 1996-10-05 12:07:00 | 2006 | 1001 | Online |
+| 3009 | 1713.23 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3010 | 1309.95 | 1996-10-06 13:12:00 | 2004 | 1002 | Online |
+| 3011 | 9891.88 | 1996-10-06 13:09:00 | 2006 | 1001 | Online |
+| 3012 | 3455.78 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3013 | 1245.98 | 1996-10-04 16:32:00 | 2002 | 1003 | Online |
+| 3014 | 3721.53 | 1996-10-05 12:45:00 | 2006 | 1001 | Online |
+| 3015 |   734.5 | 1996-10-06 13:16:00 | 2004 | 1002 | Online |
+| 3016 | 1729.67 | 1996-10-06 13:07:00 | 2006 | 1001 | Online |
+| 3017 |   18.69 | 1996-10-03 12:30:00 | 2001 | 1007 | Online |
+| 3018 |  767.19 | 1996-10-03 13:45:00 | 2002 | 1001 | Online |
+| 3019 |  1900.1 | 1996-10-03 12:05:00 | 2007 | 1004 | Online |
+| 3020 | 5160.45 | 1996-10-03 14:00:00 | 2003 | 1007 | Online |
+| 3021 | 1098.16 | 1996-10-03 13:37:00 | 2008 | 1007 | Online |
+| 3022 | 1713.23 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3023 |   75.75 | 1996-10-04 16:02:00 | 2002 | 1004 | Online |
+| 3024 |    4723 | 1996-10-05 12:07:00 | 2006 | 1002 | Online |
+| 3025 | 1309.95 | 1996-10-06 13:12:00 | 2002 | 1002 | Online |
+| 3026 | 9891.88 | 1996-10-06 13:09:00 | 2006 | 1001 | Online |
+| 3027 | 3455.78 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3028 | 1245.98 | 1996-10-04 16:32:00 | 2002 | 1003 | Online |
+| 3029 | 3721.53 | 1996-10-05 12:45:00 | 2006 | 1001 | Online |
+| 3030 |   734.5 | 1996-10-06 13:16:00 | 2004 | 1002 | Online |
+| 3031 | 1729.67 | 1996-10-06 13:07:00 | 2006 | 1007 | Online |
+| 3032 |    3434 | 1996-01-26 17:09:12 | 2006 | 1007 | Online |
+| 3033 |     522 | 1996-12-24 14:23:00 | 2002 | 1002 | Online |
+| 3049 |     500 | 1996-03-14 07:45:19 | 2001 | 1003 | Online |
+| 3074 |     457 | 1996-04-19 05:13:00 | 2008 | 1007 | Online |
+| 3119 |     125 | 1996-07-26 18:37:00 | 2007 | 1001 | Online |
+| 4001 |     145 | 1996-05-13 20:47:00 | 2008 | 1003 | Online |
+| 4012 |     245 | 1996-03-06 13:07:00 | 2001 | 1002 | Online |
+| 4021 |     600 | 1996-08-12 13:07:00 | 2001 | 1002 | Online |
+| 4054 |    1200 | 1996-11-22 13:07:00 | 2004 | 1003 | Online |
+| 5011 |     138 | 1996-09-14 13:07:00 | 2001 | 1007 | Online |
+| 5014 |     980 | 1996-08-23 13:07:00 | 2002 | 1007 | Online |
+| 5015 |    2133 | 1996-06-23 13:07:00 | 2004 | 1007 | Online |
+| 5016 |    1000 | 1996-03-12 13:07:00 | 2002 | 1007 | Online |
+| 5053 |    1500 | 1996-01-01 13:07:00 | 2006 | 1007 | Online |
+| 5099 |     790 | 1996-04-24 13:07:00 | 2002 | 1007 | Online |
+| 6501 |     125 | 1996-06-13 13:07:00 | 2001 | 1001 | Online |
+| 6502 |     535 | 1996-08-24 13:07:00 | 2006 | 1004 | Online |
+| 6503 |    1100 | 1996-07-26 13:07:00 | 2006 | 1007 | Online |
+| 6504 |    1350 | 1996-07-21 13:07:00 | 2008 | 1007 | Online |
++------+---------+---------------------+------+------+--------+
+49 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.00 sec)
+
+
+mysql> SELECT * FROM emp WHERE MONTH(hiredate) = 12;
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME | GENDER | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  7369 | SMITH | M      | CLERK   | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV | M      | CLERK   | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7788 | SCOTT | M      | ANALYST | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7900 | JAMES | M      | CLERK   | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD  | M      | ANALYST | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select *from employees where hiredate > '1980-12-31';
+ERROR 1146 (42S02): Table 'dac103.employees' doesn't exist
+mysql> select *from emp where hiredate > '1980-12-31';
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+25 rows in set (0.00 sec)
+
+mysql> SELECT CURDATE() + INTERVAL 15 DAY AS future_date;
++-------------+
+| future_date |
++-------------+
+| 2024-11-04  |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT ename,hiredate,  sal,   DATE_FORMAT(DATE_ADD(hiredate, INTERVAL 6 MONTH), '%W, the %D of %M, %Y') AS review_date FROM emp;
++----------+------------+------+--------------------------------------+
+| ename    | hiredate   | sal  | review_date                          |
++----------+------------+------+--------------------------------------+
+| GITA     | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| VRUSHALI | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| SHARMIN  | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| BANDISH  | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| SMITH    | 1980-12-17 |  800 | Wednesday, the 17th of June, 1981    |
+| AARAV    | 1981-12-31 | 3350 | Wednesday, the 30th of June, 1982    |
+| THOMAS   | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| ALLEN    | 1981-02-20 | 1600 | Thursday, the 20th of August, 1981   |
+| WARD     | 1981-02-22 | 1250 | Saturday, the 22nd of August, 1981   |
+| JONES    | 1981-04-02 | 2975 | Friday, the 2nd of October, 1981     |
+| MARTIN   | 1981-09-28 | 1250 | Sunday, the 28th of March, 1982      |
+| BLAKE    | 1981-05-01 | 2850 | Sunday, the 1st of November, 1981    |
+| CLARK    | 1981-06-09 | 2450 | Wednesday, the 9th of December, 1981 |
+| SCOTT    | 1982-12-09 | 3000 | Thursday, the 9th of June, 1983      |
+| KING     | 1981-11-17 | 5000 | Monday, the 17th of May, 1982        |
+| FRED     | 1983-08-09 | 5000 | Thursday, the 9th of February, 1984  |
+| TURNER   | 1981-09-08 | 1500 | Monday, the 8th of March, 1982       |
+| ADAMS    | 1983-01-12 | 1100 | Tuesday, the 12th of July, 1983      |
+| JAMES    | 1981-12-03 |  950 | Thursday, the 3rd of June, 1982      |
+| FORD     | 1981-12-03 | 3000 | Thursday, the 3rd of June, 1982      |
+| HOFFMAN  | 1982-03-24 | 4150 | Friday, the 24th of September, 1982  |
+| GRASS    | 1980-02-14 | 2575 | Thursday, the 14th of August, 1980   |
+| MILLER   | 1982-01-23 | 1300 | Friday, the 23rd of July, 1982       |
+| AARUSH   | 1980-02-14 | 1350 | Thursday, the 14th of August, 1980   |
+| ALEX     | 1982-01-24 | 1250 | Saturday, the 24th of July, 1982     |
+| NATASHA  | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| SANGITA  | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| SUPRIYA  | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
++----------+------------+------+--------------------------------------+
+28 rows in set (0.00 sec)
+
+mysql> select ename, hiredate, dayname(hiredate) as day_of_week from emp order by field(dayname(hiredate), 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday');
++----------+------------+-------------+
+| ename    | hiredate   | day_of_week |
++----------+------------+-------------+
+| MARTIN   | 1981-09-28 | Monday      |
+| CLARK    | 1981-06-09 | Tuesday     |
+| KING     | 1981-11-17 | Tuesday     |
+| FRED     | 1983-08-09 | Tuesday     |
+| TURNER   | 1981-09-08 | Tuesday     |
+| SMITH    | 1980-12-17 | Wednesday   |
+| ADAMS    | 1983-01-12 | Wednesday   |
+| HOFFMAN  | 1982-03-24 | Wednesday   |
+| AARAV    | 1981-12-31 | Thursday    |
+| JONES    | 1981-04-02 | Thursday    |
+| SCOTT    | 1982-12-09 | Thursday    |
+| JAMES    | 1981-12-03 | Thursday    |
+| FORD     | 1981-12-03 | Thursday    |
+| GRASS    | 1980-02-14 | Thursday    |
+| AARUSH   | 1980-02-14 | Thursday    |
+| ALLEN    | 1981-02-20 | Friday      |
+| BLAKE    | 1981-05-01 | Friday      |
+| MILLER   | 1982-01-23 | Saturday    |
+| GITA     | 1981-07-19 | Sunday      |
+| VRUSHALI | 1981-07-19 | Sunday      |
+| SHARMIN  | 1981-07-19 | Sunday      |
+| BANDISH  | 1981-07-19 | Sunday      |
+| THOMAS   | 1981-07-19 | Sunday      |
+| WARD     | 1981-02-22 | Sunday      |
+| ALEX     | 1982-01-24 | Sunday      |
+| NATASHA  | 1981-07-19 | Sunday      |
+| SANGITA  | 1981-07-19 | Sunday      |
+| SUPRIYA  | 1981-07-19 | Sunday      |
++----------+------------+-------------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT DATEDIFF(CURDATE(), hiredate) AS days_elapsed FROM emp WHERE ename = 'ADAMS';
++--------------+
+| days_elapsed |
++--------------+
+|        15257 |
++--------------+
+1 row in set (0.01 sec)
+
+mysql> select concat(ename, '-', job) as name_job from emp;
++------------------------------+
+| name_job                     |
++------------------------------+
+| GITA-Compliance officers     |
+| VRUSHALI-Compliance officers |
+| SHARMIN-Public Relation      |
+| BANDISH-Public Relation      |
+| SMITH-CLERK                  |
+| AARAV-CLERK                  |
+| THOMAS-CLERK                 |
+| ALLEN-SALESMAN               |
+| WARD-SALESMAN                |
+| JONES-MANAGER                |
+| MARTIN-SALESMAN              |
+| BLAKE-MANAGER                |
+| CLARK-MANAGER                |
+| SCOTT-ANALYST                |
+| KING-PRESIDENT               |
+| FRED-vice PRESIDENT          |
+| TURNER-SALESMAN              |
+| ADAMS-CLERK                  |
+| JAMES-CLERK                  |
+| FORD-ANALYST                 |
+| HOFFMAN-MANAGER              |
+| GRASS-SALESMAN               |
+| MILLER-CLERK                 |
+| AARUSH-SALESMAN              |
+| ALEX-MANAGER                 |
+| NATASHA-CLERK                |
+| SANGITA-Compliance officers  |
+| SUPRIYA-ANALYST              |
++------------------------------+
+28 rows in set (0.00 sec)
+
+
+mysql> select distinct length(ename) as name_length from emp;
++-------------+
+| name_length |
++-------------+
+|           4 |
+|           8 |
+|           7 |
+|           5 |
+|           6 |
++-------------+
+5 rows in set (0.00 sec)
+
+
+mysql> SELECT DAYNAME(hiredate) AS day_of_week FROM emp WHERE ename = 'SMITH';
++-------------+
+| day_of_week |
++-------------+
+| Wednesday   |
++-------------+
+1 row in set (0.00 sec)
+
+==========================================================================================================================================================================================================================================================================================================================================
+
+rosoft Windows [Version 10.0.19045.5011]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\IET>mysql --host 192.168.10.150 --port 3306 --user=dac103 --password=welcome
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 55
+Server version: 8.1.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use dac103;
+Database changed
+mysql> select curdate() as current_date;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'current_date' at line 1
+mysql> select curdate();
++------------+
+| curdate()  |
++------------+
+| 2024-10-20 |
++------------+
+1 row in set (0.01 sec)
+
+mysql> select SELECT DAYNAME(CURDATE()) AS current_day;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT DAYNAME(CURDATE()) AS current_day' at line 1
+mysql> SELECT DAYNAME(CURDATE()) AS current_day;
++-------------+
+| current_day |
++-------------+
+| Sunday      |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATENAME(WEEKDAY, GETDATE()) AS current_day;
+ERROR 1305 (42000): FUNCTION dac103.DATENAME does not exist
+mysql> SELECT DAYNAME(CURDATE()) AS current_day;
++-------------+
+| current_day |
++-------------+
+| Sunday      |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT* from emp where month='12';
+ERROR 1054 (42S22): Unknown column 'month' in 'where clause'
+mysql> select *from employees where month(join_date) = 12;
+ERROR 1146 (42S02): Table 'dac103.employees' doesn't exist
+mysql> select *from emp where month(join_date) = 12;
+ERROR 1054 (42S22): Unknown column 'join_date' in 'where clause'
+mysql> select * from emp
+    -> ;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.03 sec)
+
+mysql> select *from emp where month(hiredate) = 12;
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME | GENDER | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  7369 | SMITH | M      | CLERK   | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV | M      | CLERK   | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7788 | SCOTT | M      | ANALYST | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7900 | JAMES | M      | CLERK   | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD  | M      | ANALYST | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select from emp where ename(king);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from emp where ename(king)' at line 1
+mysql> select dayname(hiredate) as join_day from emp where  ename = 'king';
++----------+
+| join_day |
++----------+
+| Tuesday  |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select Monthname(hiredate) as join_day from emp where  ename = 'martin';
++-----------+
+| join_day  |
++-----------+
+| September |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select upper(employee_name) as employee_name, date_format(join_date, '%w %m, %y') as formatted_join_date from employees where department_number = 10;
+ERROR 1146 (42S02): Table 'dac103.employees' doesn't exist
+mysql> select upper(employee_name) as employee_name, date_format(join_date, '%w %m, %y') as formatted_join_date from emp where department_number = 10;
+ERROR 1054 (42S22): Unknown column 'employee_name' in 'field list'
+mysql> selct * from dept;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selct * from dept' at line 1
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+5 rows in set (0.05 sec)
+
+mysql> select upper(ename) as employee_name, date_format(hiredate, '%w %m, %y') as formatted_join_date from emp where deptno= 10;
++---------------+---------------------+
+| employee_name | formatted_join_date |
++---------------+---------------------+
+| AARAV         | 4 12, 81            |
+| THOMAS        | 0 07, 81            |
+| CLARK         | 2 06, 81            |
+| KING          | 2 11, 81            |
+| MILLER        | 6 01, 82            |
++---------------+---------------------+
+5 rows in set (0.04 sec)
+
+mysql> select *from orders where year(order_date) = 1986;
+ERROR 1054 (42S22): Unknown column 'order_date' in 'where clause'
+mysql> select *from orders ;
++------+---------+---------------------+------+------+--------+
+| ONUM | AMT     | ODATE               | CNUM | SNUM | type   |
++------+---------+---------------------+------+------+--------+
+| 3001 |   18.69 | 1996-10-03 12:30:00 | 2008 | 1007 | Online |
+| 3002 |  1900.1 | 1996-10-03 12:05:00 | 2007 | 1004 | Online |
+| 3003 |  767.19 | 1996-10-03 13:45:00 | 2001 | 1001 | Online |
+| 3005 | 5160.45 | 1996-10-03 14:00:00 | 2003 | 1002 | Online |
+| 3006 | 1098.16 | 1996-10-03 13:37:00 | 2008 | 1007 | Online |
+| 3007 |   75.75 | 1996-10-04 16:02:00 | 2002 | 1003 | Online |
+| 3008 |    4723 | 1996-10-05 12:07:00 | 2006 | 1001 | Online |
+| 3009 | 1713.23 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3010 | 1309.95 | 1996-10-06 13:12:00 | 2004 | 1002 | Online |
+| 3011 | 9891.88 | 1996-10-06 13:09:00 | 2006 | 1001 | Online |
+| 3012 | 3455.78 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3013 | 1245.98 | 1996-10-04 16:32:00 | 2002 | 1003 | Online |
+| 3014 | 3721.53 | 1996-10-05 12:45:00 | 2006 | 1001 | Online |
+| 3015 |   734.5 | 1996-10-06 13:16:00 | 2004 | 1002 | Online |
+| 3016 | 1729.67 | 1996-10-06 13:07:00 | 2006 | 1001 | Online |
+| 3017 |   18.69 | 1996-10-03 12:30:00 | 2001 | 1007 | Online |
+| 3018 |  767.19 | 1996-10-03 13:45:00 | 2002 | 1001 | Online |
+| 3019 |  1900.1 | 1996-10-03 12:05:00 | 2007 | 1004 | Online |
+| 3020 | 5160.45 | 1996-10-03 14:00:00 | 2003 | 1007 | Online |
+| 3021 | 1098.16 | 1996-10-03 13:37:00 | 2008 | 1007 | Online |
+| 3022 | 1713.23 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3023 |   75.75 | 1996-10-04 16:02:00 | 2002 | 1004 | Online |
+| 3024 |    4723 | 1996-10-05 12:07:00 | 2006 | 1002 | Online |
+| 3025 | 1309.95 | 1996-10-06 13:12:00 | 2002 | 1002 | Online |
+| 3026 | 9891.88 | 1996-10-06 13:09:00 | 2006 | 1001 | Online |
+| 3027 | 3455.78 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3028 | 1245.98 | 1996-10-04 16:32:00 | 2002 | 1003 | Online |
+| 3029 | 3721.53 | 1996-10-05 12:45:00 | 2006 | 1001 | Online |
+| 3030 |   734.5 | 1996-10-06 13:16:00 | 2004 | 1002 | Online |
+| 3031 | 1729.67 | 1996-10-06 13:07:00 | 2006 | 1007 | Online |
+| 3032 |    3434 | 1996-01-26 17:09:12 | 2006 | 1007 | Online |
+| 3033 |     522 | 1996-12-24 14:23:00 | 2002 | 1002 | Online |
+| 3049 |     500 | 1996-03-14 07:45:19 | 2001 | 1003 | Online |
+| 3074 |     457 | 1996-04-19 05:13:00 | 2008 | 1007 | Online |
+| 3119 |     125 | 1996-07-26 18:37:00 | 2007 | 1001 | Online |
+| 4001 |     145 | 1996-05-13 20:47:00 | 2008 | 1003 | Online |
+| 4012 |     245 | 1996-03-06 13:07:00 | 2001 | 1002 | Online |
+| 4021 |     600 | 1996-08-12 13:07:00 | 2001 | 1002 | Online |
+| 4054 |    1200 | 1996-11-22 13:07:00 | 2004 | 1003 | Online |
+| 5011 |     138 | 1996-09-14 13:07:00 | 2001 | 1007 | Online |
+| 5014 |     980 | 1996-08-23 13:07:00 | 2002 | 1007 | Online |
+| 5015 |    2133 | 1996-06-23 13:07:00 | 2004 | 1007 | Online |
+| 5016 |    1000 | 1996-03-12 13:07:00 | 2002 | 1007 | Online |
+| 5053 |    1500 | 1996-01-01 13:07:00 | 2006 | 1007 | Online |
+| 5099 |     790 | 1996-04-24 13:07:00 | 2002 | 1007 | Online |
+| 6501 |     125 | 1996-06-13 13:07:00 | 2001 | 1001 | Online |
+| 6502 |     535 | 1996-08-24 13:07:00 | 2006 | 1004 | Online |
+| 6503 |    1100 | 1996-07-26 13:07:00 | 2006 | 1007 | Online |
+| 6504 |    1350 | 1996-07-21 13:07:00 | 2008 | 1007 | Online |
++------+---------+---------------------+------+------+--------+
+49 rows in set (0.03 sec)
+
+mysql> select *from orders where year(odate) = 1986;
+Empty set (0.00 sec)
+
+mysql> select *from orders where year(odate) = 1996;
++------+---------+---------------------+------+------+--------+
+| ONUM | AMT     | ODATE               | CNUM | SNUM | type   |
++------+---------+---------------------+------+------+--------+
+| 3001 |   18.69 | 1996-10-03 12:30:00 | 2008 | 1007 | Online |
+| 3002 |  1900.1 | 1996-10-03 12:05:00 | 2007 | 1004 | Online |
+| 3003 |  767.19 | 1996-10-03 13:45:00 | 2001 | 1001 | Online |
+| 3005 | 5160.45 | 1996-10-03 14:00:00 | 2003 | 1002 | Online |
+| 3006 | 1098.16 | 1996-10-03 13:37:00 | 2008 | 1007 | Online |
+| 3007 |   75.75 | 1996-10-04 16:02:00 | 2002 | 1003 | Online |
+| 3008 |    4723 | 1996-10-05 12:07:00 | 2006 | 1001 | Online |
+| 3009 | 1713.23 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3010 | 1309.95 | 1996-10-06 13:12:00 | 2004 | 1002 | Online |
+| 3011 | 9891.88 | 1996-10-06 13:09:00 | 2006 | 1001 | Online |
+| 3012 | 3455.78 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3013 | 1245.98 | 1996-10-04 16:32:00 | 2002 | 1003 | Online |
+| 3014 | 3721.53 | 1996-10-05 12:45:00 | 2006 | 1001 | Online |
+| 3015 |   734.5 | 1996-10-06 13:16:00 | 2004 | 1002 | Online |
+| 3016 | 1729.67 | 1996-10-06 13:07:00 | 2006 | 1001 | Online |
+| 3017 |   18.69 | 1996-10-03 12:30:00 | 2001 | 1007 | Online |
+| 3018 |  767.19 | 1996-10-03 13:45:00 | 2002 | 1001 | Online |
+| 3019 |  1900.1 | 1996-10-03 12:05:00 | 2007 | 1004 | Online |
+| 3020 | 5160.45 | 1996-10-03 14:00:00 | 2003 | 1007 | Online |
+| 3021 | 1098.16 | 1996-10-03 13:37:00 | 2008 | 1007 | Online |
+| 3022 | 1713.23 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3023 |   75.75 | 1996-10-04 16:02:00 | 2002 | 1004 | Online |
+| 3024 |    4723 | 1996-10-05 12:07:00 | 2006 | 1002 | Online |
+| 3025 | 1309.95 | 1996-10-06 13:12:00 | 2002 | 1002 | Online |
+| 3026 | 9891.88 | 1996-10-06 13:09:00 | 2006 | 1001 | Online |
+| 3027 | 3455.78 | 1996-10-04 15:21:00 | 2002 | 1003 | Online |
+| 3028 | 1245.98 | 1996-10-04 16:32:00 | 2002 | 1003 | Online |
+| 3029 | 3721.53 | 1996-10-05 12:45:00 | 2006 | 1001 | Online |
+| 3030 |   734.5 | 1996-10-06 13:16:00 | 2004 | 1002 | Online |
+| 3031 | 1729.67 | 1996-10-06 13:07:00 | 2006 | 1007 | Online |
+| 3032 |    3434 | 1996-01-26 17:09:12 | 2006 | 1007 | Online |
+| 3033 |     522 | 1996-12-24 14:23:00 | 2002 | 1002 | Online |
+| 3049 |     500 | 1996-03-14 07:45:19 | 2001 | 1003 | Online |
+| 3074 |     457 | 1996-04-19 05:13:00 | 2008 | 1007 | Online |
+| 3119 |     125 | 1996-07-26 18:37:00 | 2007 | 1001 | Online |
+| 4001 |     145 | 1996-05-13 20:47:00 | 2008 | 1003 | Online |
+| 4012 |     245 | 1996-03-06 13:07:00 | 2001 | 1002 | Online |
+| 4021 |     600 | 1996-08-12 13:07:00 | 2001 | 1002 | Online |
+| 4054 |    1200 | 1996-11-22 13:07:00 | 2004 | 1003 | Online |
+| 5011 |     138 | 1996-09-14 13:07:00 | 2001 | 1007 | Online |
+| 5014 |     980 | 1996-08-23 13:07:00 | 2002 | 1007 | Online |
+| 5015 |    2133 | 1996-06-23 13:07:00 | 2004 | 1007 | Online |
+| 5016 |    1000 | 1996-03-12 13:07:00 | 2002 | 1007 | Online |
+| 5053 |    1500 | 1996-01-01 13:07:00 | 2006 | 1007 | Online |
+| 5099 |     790 | 1996-04-24 13:07:00 | 2002 | 1007 | Online |
+| 6501 |     125 | 1996-06-13 13:07:00 | 2001 | 1001 | Online |
+| 6502 |     535 | 1996-08-24 13:07:00 | 2006 | 1004 | Online |
+| 6503 |    1100 | 1996-07-26 13:07:00 | 2006 | 1007 | Online |
+| 6504 |    1350 | 1996-07-21 13:07:00 | 2008 | 1007 | Online |
++------+---------+---------------------+------+------+--------+
+49 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT  ename,hiredate, sal, DATE_ADD(DATE_ADD(hire_date, INTERVAL 6 MONTH), INTERVAL (9 - DAYOFWEEK(DATE_ADD(hiredate, INTERVAL 6 MONTH))) % 7) DAY) AS review_dateFROM employees;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') DAY) AS review_dateFROM employees' at line 1
+mysql> SELECT  ename,hiredate, sal, DATE_ADD(DATE_ADD(hire_date, INTERVAL 6 MONTH), INTERVAL (9 - DAYOFWEEK(DATE_ADD(hiredate, INTERVAL 6 MONTH))) % 7) DAY) AS review_dateFROM emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') DAY) AS review_dateFROM emp' at line 1
+mysql> SELECT  ename,hiredate, sal, DATE_ADD(DATE_ADD(hire_date, INTERVAL 6 MONTH), INTERVAL (9 - DAYOFWEEK(DATE_ADD(hiredate, INTERVAL 6 MONTH))) % 7) DAY) AS review_date FROM emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') DAY) AS review_date FROM emp' at line 1
+mysql> SELECT * FROM empWHERE MONTH(hiredate) = 12;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(hiredate) = 12' at line 1
+mysql> SELECT * FROM emp WHERE MONTH(hiredate) = 12;
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME | GENDER | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  7369 | SMITH | M      | CLERK   | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV | M      | CLERK   | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7788 | SCOTT | M      | ANALYST | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7900 | JAMES | M      | CLERK   | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD  | M      | ANALYST | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
++-------+-------+--------+---------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select *from employees where hiredate > '1980-12-31';
+ERROR 1146 (42S02): Table 'dac103.employees' doesn't exist
+mysql> select *from emp where hiredate > '1980-12-31';
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+25 rows in set (0.00 sec)
+
+mysql> SELECT CURDATE() + INTERVAL 15 DAY AS future_date;
++-------------+
+| future_date |
++-------------+
+| 2024-11-04  |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT ename,hiredate,  sal,   DATE_FORMAT(DATE_ADD(hiredate, INTERVAL 6 MONTH), '%W, the %D of %M, %Y') AS review_date FROM emp;
++----------+------------+------+--------------------------------------+
+| ename    | hiredate   | sal  | review_date                          |
++----------+------------+------+--------------------------------------+
+| GITA     | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| VRUSHALI | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| SHARMIN  | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| BANDISH  | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| SMITH    | 1980-12-17 |  800 | Wednesday, the 17th of June, 1981    |
+| AARAV    | 1981-12-31 | 3350 | Wednesday, the 30th of June, 1982    |
+| THOMAS   | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| ALLEN    | 1981-02-20 | 1600 | Thursday, the 20th of August, 1981   |
+| WARD     | 1981-02-22 | 1250 | Saturday, the 22nd of August, 1981   |
+| JONES    | 1981-04-02 | 2975 | Friday, the 2nd of October, 1981     |
+| MARTIN   | 1981-09-28 | 1250 | Sunday, the 28th of March, 1982      |
+| BLAKE    | 1981-05-01 | 2850 | Sunday, the 1st of November, 1981    |
+| CLARK    | 1981-06-09 | 2450 | Wednesday, the 9th of December, 1981 |
+| SCOTT    | 1982-12-09 | 3000 | Thursday, the 9th of June, 1983      |
+| KING     | 1981-11-17 | 5000 | Monday, the 17th of May, 1982        |
+| FRED     | 1983-08-09 | 5000 | Thursday, the 9th of February, 1984  |
+| TURNER   | 1981-09-08 | 1500 | Monday, the 8th of March, 1982       |
+| ADAMS    | 1983-01-12 | 1100 | Tuesday, the 12th of July, 1983      |
+| JAMES    | 1981-12-03 |  950 | Thursday, the 3rd of June, 1982      |
+| FORD     | 1981-12-03 | 3000 | Thursday, the 3rd of June, 1982      |
+| HOFFMAN  | 1982-03-24 | 4150 | Friday, the 24th of September, 1982  |
+| GRASS    | 1980-02-14 | 2575 | Thursday, the 14th of August, 1980   |
+| MILLER   | 1982-01-23 | 1300 | Friday, the 23rd of July, 1982       |
+| AARUSH   | 1980-02-14 | 1350 | Thursday, the 14th of August, 1980   |
+| ALEX     | 1982-01-24 | 1250 | Saturday, the 24th of July, 1982     |
+| NATASHA  | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| SANGITA  | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
+| SUPRIYA  | 1981-07-19 | 1750 | Tuesday, the 19th of January, 1982   |
++----------+------------+------+--------------------------------------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT ename, RIGHT(REPLICATE(' ', 15) + '$' + CAST(ROUND(salary, 2) AS VARCHAR(15)), 15) AS formatted_salary FROM emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCHAR(15)), 15) AS formatted_salary FROM emp' at line 1
+mysql> select ename, hire_date, dayname(hiredate) as day_of_week from emp order by field(dayname(hiredate), 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday');
+ERROR 1054 (42S22): Unknown column 'hire_date' in 'field list'
+mysql> select ename, hiredate, dayname(hiredate) as day_of_week from emp order by field(dayname(hiredate), 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday');
++----------+------------+-------------+
+| ename    | hiredate   | day_of_week |
++----------+------------+-------------+
+| MARTIN   | 1981-09-28 | Monday      |
+| CLARK    | 1981-06-09 | Tuesday     |
+| KING     | 1981-11-17 | Tuesday     |
+| FRED     | 1983-08-09 | Tuesday     |
+| TURNER   | 1981-09-08 | Tuesday     |
+| SMITH    | 1980-12-17 | Wednesday   |
+| ADAMS    | 1983-01-12 | Wednesday   |
+| HOFFMAN  | 1982-03-24 | Wednesday   |
+| AARAV    | 1981-12-31 | Thursday    |
+| JONES    | 1981-04-02 | Thursday    |
+| SCOTT    | 1982-12-09 | Thursday    |
+| JAMES    | 1981-12-03 | Thursday    |
+| FORD     | 1981-12-03 | Thursday    |
+| GRASS    | 1980-02-14 | Thursday    |
+| AARUSH   | 1980-02-14 | Thursday    |
+| ALLEN    | 1981-02-20 | Friday      |
+| BLAKE    | 1981-05-01 | Friday      |
+| MILLER   | 1982-01-23 | Saturday    |
+| GITA     | 1981-07-19 | Sunday      |
+| VRUSHALI | 1981-07-19 | Sunday      |
+| SHARMIN  | 1981-07-19 | Sunday      |
+| BANDISH  | 1981-07-19 | Sunday      |
+| THOMAS   | 1981-07-19 | Sunday      |
+| WARD     | 1981-02-22 | Sunday      |
+| ALEX     | 1982-01-24 | Sunday      |
+| NATASHA  | 1981-07-19 | Sunday      |
+| SANGITA  | 1981-07-19 | Sunday      |
+| SUPRIYA  | 1981-07-19 | Sunday      |
++----------+------------+-------------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT DATEDIFF(CURDATE(), hiredate) AS days_elapsed FROM emp WHERE ename = 'ADAMS';
++--------------+
+| days_elapsed |
++--------------+
+|        15257 |
++--------------+
+1 row in set (0.01 sec)
+
+mysql> select concat(ename, '-', job) as name_job from emp;
++------------------------------+
+| name_job                     |
++------------------------------+
+| GITA-Compliance officers     |
+| VRUSHALI-Compliance officers |
+| SHARMIN-Public Relation      |
+| BANDISH-Public Relation      |
+| SMITH-CLERK                  |
+| AARAV-CLERK                  |
+| THOMAS-CLERK                 |
+| ALLEN-SALESMAN               |
+| WARD-SALESMAN                |
+| JONES-MANAGER                |
+| MARTIN-SALESMAN              |
+| BLAKE-MANAGER                |
+| CLARK-MANAGER                |
+| SCOTT-ANALYST                |
+| KING-PRESIDENT               |
+| FRED-vice PRESIDENT          |
+| TURNER-SALESMAN              |
+| ADAMS-CLERK                  |
+| JAMES-CLERK                  |
+| FORD-ANALYST                 |
+| HOFFMAN-MANAGER              |
+| GRASS-SALESMAN               |
+| MILLER-CLERK                 |
+| AARUSH-SALESMAN              |
+| ALEX-MANAGER                 |
+| NATASHA-CLERK                |
+| SANGITA-Compliance officers  |
+| SUPRIYA-ANALYST              |
++------------------------------+
+28 rows in set (0.00 sec)
+
+mysql> select distinct length(empname) as name_length from emp;
+ERROR 1054 (42S22): Unknown column 'empname' in 'field list'
+mysql> select distinct length(ename) as name_length from emp;
++-------------+
+| name_length |
++-------------+
+|           4 |
+|           8 |
+|           7 |
+|           5 |
+|           6 |
++-------------+
+5 rows in set (0.00 sec)
+
+mysql> select ename, to_char(hiredate, 'mm/dd/yyyy') as formatted_hire_date from emp where deptno = 20;
+ERROR 1305 (42000): FUNCTION dac103.to_char does not exist
+mysql> SELECT
+    ->     DAYNAME(hire_date) AS day_of_week
+    -> FROM employees
+    -> WHERE employee_name = 'SMITH';
+ERROR 1146 (42S02): Table 'dac103.employees' doesn't exist
+mysql> SELECT
+    ->     DAYNAME(hire_date) AS day_of_week
+    -> FROM employees
+    -> WHERE employee_name = 'SMITH';
+ERROR 1146 (42S02): Table 'dac103.employees' doesn't exist
+mysql> SELECT DAYNAME(hiredate) AS day_of_week FROM emp WHERE ename = 'SMITH';
++-------------+
+| day_of_week |
++-------------+
+| Wednesday   |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select concat_ws(',', empno, ename, job, mgr, hiredate, sal, comm, deptno) as "employee data" (new_salary - old_salary) as "salary difference"from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(new_salary - old_salary) as "salary difference"from emp' at line 1
+mysql> select * from epm where job='manager';
+ERROR 1146 (42S02): Table 'dac103.epm' doesn't exist
+mysql> select * from emp where job='manager';
++-------+---------+--------+---------+------+------------+------+------+--------+---------+-------------+------------+------------+----------+
+| EMPNO | ENAME   | GENDER | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME   | PWD        | PHONE      | isActive |
++-------+---------+--------+---------+------+------------+------+------+--------+---------+-------------+------------+------------+----------+
+|  7566 | JONES   | M      | MANAGER | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB   | a12recmpm  | 7132300039 |        1 |
+|  7698 | BLAKE   | M      | MANAGER | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN     | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK   | M      | MANAGER | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK       | r50mpm     | 7032300001 |        1 |
+|  7919 | HOFFMAN | M      | MANAGER | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL    | sales@2017 | NULL       |        1 |
+|  7949 | ALEX    | M      | MANAGER | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST | sales@2017 | 7156567183 |        1 |
++-------+---------+--------+---------+------+------------+------+------+--------+---------+-------------+------------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from emp where sal =>3000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=>3000' at line 1
+mysql> select * from emp where sal>=3000;
++-------+---------+--------+----------------+------+------------+------+------+--------+---------+------------+------------+------------+----------+
+| EMPNO | ENAME   | GENDER | JOB            | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME  | PWD        | PHONE      | isActive |
++-------+---------+--------+----------------+------+------------+------+------+--------+---------+------------+------------+------------+----------+
+|  7415 | AARAV   | M      | CLERK          | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV      | NULL       | 7032300084 |        0 |
+|  7788 | SCOTT   | M      | ANALYST        | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND | a12recmpm  | NULL       |        1 |
+|  7839 | KING    | M      | PRESIDENT      | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING       | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED    | M      | vice PRESIDENT | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE | a12recmpm  | NULL       |        1 |
+|  7902 | FORD    | M      | ANALYST        | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO    | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN | M      | MANAGER        | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL   | sales@2017 | NULL       |        1 |
++-------+---------+--------+----------------+------+------------+------+------+--------+---------+------------+------------+------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from  emp where  left(ename, 2,1) = 'r';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',1) = 'r'' at line 1
+mysql> SELECT * FROM emp WHERE ename[2] = 'r';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[2] = 'r'' at line 1
+mysql> SELECT * FROM emp WHERE SUBSTRING(ename, 2, 1) = 'r';
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+------------+------------+-------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME  | PWD        | PHONE | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+------------+------------+-------+----------+
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI   | PUN@8877   | NULL  |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE | a12recmpm  | NULL  |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS      | sales@2017 | NULL  |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+------------+------------+-------+----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM emp WHERE ename[2] = 'r';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[2] = 'r'' at line 1
+mysql> SELECT * FROM emp WHERE RIGHT(LEFT(ename, 2), 1) = 'r';
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+------------+------------+-------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME  | PWD        | PHONE | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+------------+------------+-------+----------+
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI   | PUN@8877   | NULL  |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE | a12recmpm  | NULL  |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS      | sales@2017 | NULL  |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+------------+------------+-------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp having number,ename,hiredate,job where deptno='10';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',ename,hiredate,job where deptno='10'' at line 1
+mysql> select number, ename, hiredate, job from emp where deptno = '10';
+ERROR 1054 (42S22): Unknown column 'number' in 'field list'
+mysql> select phone, ename, hiredate, job from emp where deptno = '10';
++------------+--------+------------+-----------+
+| phone      | ename  | hiredate   | job       |
++------------+--------+------------+-----------+
+| 7032300084 | AARAV  | 1981-12-31 | CLERK     |
+| 7032300011 | THOMAS | 1981-07-19 | CLERK     |
+| 7032300001 | CLARK  | 1981-06-09 | MANAGER   |
+| 7132300081 | KING   | 1981-11-17 | PRESIDENT |
+| 7132300055 | MILLER | 1982-01-23 | CLERK     |
++------------+--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from emp where sal>2000;
++-------+---------+--------+----------------+------+------------+------+------+--------+---------+------------+------------+------------+----------+
+| EMPNO | ENAME   | GENDER | JOB            | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME  | PWD        | PHONE      | isActive |
++-------+---------+--------+----------------+------+------------+------+------+--------+---------+------------+------------+------------+----------+
+|  7415 | AARAV   | M      | CLERK          | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV      | NULL       | 7032300084 |        0 |
+|  7566 | JONES   | M      | MANAGER        | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB  | a12recmpm  | 7132300039 |        1 |
+|  7698 | BLAKE   | M      | MANAGER        | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN    | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK   | M      | MANAGER        | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK      | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT   | M      | ANALYST        | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND | a12recmpm  | NULL       |        1 |
+|  7839 | KING    | M      | PRESIDENT      | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING       | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED    | M      | vice PRESIDENT | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE | a12recmpm  | NULL       |        1 |
+|  7902 | FORD    | M      | ANALYST        | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO    | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN | M      | MANAGER        | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL   | sales@2017 | NULL       |        1 |
+|  7920 | GRASS   | M      | SALESMAN       | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS      | sales@2017 | NULL       |        1 |
++-------+---------+--------+----------------+------+------------+------+------+--------+---------+------------+------------+------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> select * from emp where hiredate='21-10-1990';
+ERROR 1525 (HY000): Incorrect DATE value: '21-10-1990'
+mysql> select * from emp where hiredate='1990-10-21';
+Empty set (0.00 sec)
+
+mysql> select * from emp where hiredate='1982-12-09';
++-------+-------+--------+---------+------+------------+------+------+--------+---------+------------+-----------+-------+----------+
+| EMPNO | ENAME | GENDER | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME  | PWD       | PHONE | isActive |
++-------+-------+--------+---------+------+------------+------+------+--------+---------+------------+-----------+-------+----------+
+|  7788 | SCOTT | M      | ANALYST | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND | a12recmpm | NULL  |        1 |
++-------+-------+--------+---------+------+------------+------+------+--------+---------+------------+-----------+-------+----------+
+1 row in set (0.00 sec)
+
+mysql> select empno,ename,job,sal where deptno='10';
+ERROR 1054 (42S22): Unknown column 'empno' in 'field list'
+mysql> select empno,ename,job,sal from emp where deptno='10';
++-------+--------+-----------+------+
+| empno | ename  | job       | sal  |
++-------+--------+-----------+------+
+|  7415 | AARAV  | CLERK     | 3350 |
+|  7421 | THOMAS | CLERK     | 1750 |
+|  7782 | CLARK  | MANAGER   | 2450 |
+|  7839 | KING   | PRESIDENT | 5000 |
+|  7934 | MILLER | CLERK     | 1300 |
++-------+--------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> select sal from emp where  sal>25000 order by asc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asc' at line 1
+mysql> select sal from emp order by asc where  sal>25000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asc where  sal>25000' at line 1
+mysql> select sal from emp where sal>25000 order by sal asc;
+Empty set (0.00 sec)
+
+mysql> select sal from emp where sal>2500 order by sal asc;
++------+
+| sal  |
++------+
+| 2575 |
+| 2850 |
+| 2975 |
+| 3000 |
+| 3000 |
+| 3350 |
+| 4150 |
+| 5000 |
+| 5000 |
++------+
+9 rows in set (0.00 sec)
+
+mysql> select ename ,sal from emp where sal>2500 order by sal asc;
++---------+------+
+| ename   | sal  |
++---------+------+
+| GRASS   | 2575 |
+| BLAKE   | 2850 |
+| JONES   | 2975 |
+| SCOTT   | 3000 |
+| FORD    | 3000 |
+| AARAV   | 3350 |
+| HOFFMAN | 4150 |
+| KING    | 5000 |
+| FRED    | 5000 |
++---------+------+
+9 rows in set (0.00 sec)
+
+mysql> select ename ,sal from emp where sal>2500 order by sal desc;
++---------+------+
+| ename   | sal  |
++---------+------+
+| KING    | 5000 |
+| FRED    | 5000 |
+| HOFFMAN | 4150 |
+| AARAV   | 3350 |
+| SCOTT   | 3000 |
+| FORD    | 3000 |
+| JONES   | 2975 |
+| BLAKE   | 2850 |
+| GRASS   | 2575 |
++---------+------+
+9 rows in set (0.00 sec)
+
+mysql> select ename ,sal from emp where sal>25000 order by sal desc;
+Empty set (0.00 sec)
+
+mysql> desc dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql> select  where deptno,dname from emp order by dname desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where deptno,dname from emp order by dname desc' at line 1
+mysql> select deptno, dname  from emp order by dname desc;
+ERROR 1054 (42S22): Unknown column 'dname' in 'field list'
+mysql> select deptno, dname  from dept order by dname desc;
++--------+------------+
+| deptno | dname      |
++--------+------------+
+|     30 | SALES      |
+|     20 | RESEARCH   |
+|     40 | OPERATIONS |
+|     50 | HR         |
+|     10 | ACCOUNTING |
++--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select name, salary from emp job='clerk';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='clerk'' at line 1
+mysql> select name, salary from emp job ='clerk';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='clerk'' at line 1
+mysql> SELECT name, salary FROM emp WHERE job = 'clerk';
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> SELECT ename, salary FROM emp WHERE job = 'clerk';
+ERROR 1054 (42S22): Unknown column 'salary' in 'field list'
+mysql> SELECT ename, sal FROM emp WHERE job = 'clerk';
++---------+------+
+| ename   | sal  |
++---------+------+
+| SMITH   |  800 |
+| AARAV   | 3350 |
+| THOMAS  | 1750 |
+| ADAMS   | 1100 |
+| JAMES   |  950 |
+| MILLER  | 1300 |
+| NATASHA | 1750 |
++---------+------+
+7 rows in set (0.00 sec)
+
+mysql> select ename ,sal from emp where sal>2500;
++---------+------+
+| ename   | sal  |
++---------+------+
+| AARAV   | 3350 |
+| JONES   | 2975 |
+| BLAKE   | 2850 |
+| SCOTT   | 3000 |
+| KING    | 5000 |
+| FRED    | 5000 |
+| FORD    | 3000 |
+| HOFFMAN | 4150 |
+| GRASS   | 2575 |
++---------+------+
+9 rows in set (0.00 sec)
+
+mysql> select ename ,sal from emp where sal<2500;
++----------+------+
+| ename    | sal  |
++----------+------+
+| GITA     | 1750 |
+| VRUSHALI | 1750 |
+| SHARMIN  | 1750 |
+| BANDISH  | 1750 |
+| SMITH    |  800 |
+| THOMAS   | 1750 |
+| ALLEN    | 1600 |
+| WARD     | 1250 |
+| MARTIN   | 1250 |
+| CLARK    | 2450 |
+| TURNER   | 1500 |
+| ADAMS    | 1100 |
+| JAMES    |  950 |
+| MILLER   | 1300 |
+| AARUSH   | 1350 |
+| ALEX     | 1250 |
+| NATASHA  | 1750 |
+| SANGITA  | 1750 |
+| SUPRIYA  | 1750 |
++----------+------+
+19 rows in set (0.00 sec)
+
+mysql> SELECT emp_no, name FROM emp WHERE job_title = 'President';
+ERROR 1054 (42S22): Unknown column 'emp_no' in 'field list'
+mysql> SELECT empno, ename FROM emp WHERE job = 'President';
++-------+-------+
+| empno | ename |
++-------+-------+
+|  7839 | KING  |
++-------+-------+
+1 row in set (0.00 sec)
+
+mysql> select ename from emp order by ename asc;
++----------+
+| ename    |
++----------+
+| AARAV    |
+| AARUSH   |
+| ADAMS    |
+| ALEX     |
+| ALLEN    |
+| BANDISH  |
+| BLAKE    |
+| CLARK    |
+| FORD     |
+| FRED     |
+| GITA     |
+| GRASS    |
+| HOFFMAN  |
+| JAMES    |
+| JONES    |
+| KING     |
+| MARTIN   |
+| MILLER   |
+| NATASHA  |
+| SANGITA  |
+| SCOTT    |
+| SHARMIN  |
+| SMITH    |
+| SUPRIYA  |
+| THOMAS   |
+| TURNER   |
+| VRUSHALI |
+| WARD     |
++----------+
+28 rows in set (0.00 sec)
+
+mysql> select empno,ename,gender,job,mgr,hiredate,sal,comm,deptno,bounsid,username,pwd,phone from emp order by ename asc;
+ERROR 1054 (42S22): Unknown column 'bounsid' in 'field list'
+mysql> select empno,ename,gender,job,mgr,hiredate,sal,comm,deptno,bonusid,username,pwd,phone from emp order by ename asc;
+ERROR 1054 (42S22): Unknown column 'username' in 'field list'
+mysql> select empno,ename,gender,job,mgr,hiredate,sal,comm,deptno,bonusid,user name,pwd,phone from emp order by ename asc;
+ERROR 1054 (42S22): Unknown column 'user' in 'field list'
+mysql> select empno,ename,gender,job,mgr,hiredate,sal,comm,deptno,bonusid,pwd,phone from emp order by ename asc;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+------------+------------+
+| empno | ename    | gender | job                 | mgr  | hiredate   | sal  | comm | deptno | bonusid | pwd        | phone      |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+------------+------------+
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | NULL       | 7032300084 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | ABCDEF     | NULL       |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | a12recmpm  | 7132300086 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | sales@2017 | 7156567183 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | sales@2017 | 7032300096 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | a12recmpm  | NULL       |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | sales@2017 | 7132300027 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | r50mpm     | 7032300001 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | a12recmpm  | NULL       |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | a12recmpm  | NULL       |
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | sales@2017 | NULL       |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | sales@2017 | NULL       |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | sales@2017 | NULL       |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | sales@2017 | 7132300042 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | a12recmpm  | 7132300039 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | r50mpm     | 7132300081 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | sales@2017 | 7132300050 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | r50mpm     | 7132300055 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | sales@2017 | NULL       |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | NULL       | NULL       |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | a12recmpm  | NULL       |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | a12recmpm  | NULL       |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | a12recmpm  | 7032300023 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | XYZ@1234   | NULL       |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | r50mpm     | 7032300011 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | sales@2017 | NULL       |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | PUN@8877   | NULL       |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | sales@2017 | 7132300034 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+------------+------------+
+28 rows in set (0.00 sec)
+
+mysql> select * from emp order by ename asc;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> select * from emp order by year(hiredate)desc;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> select * from emp order by year(hiredate)asc;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> select * from emp where dept='salesman';
+ERROR 1054 (42S22): Unknown column 'dept' in 'where clause'
+mysql> select * from emp where job='salesman';
++-------+--------+--------+----------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME  | GENDER | JOB      | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+--------+--------+----------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  7499 | ALLEN  | M      | SALESMAN | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD   | M      | SALESMAN | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7654 | MARTIN | M      | SALESMAN | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7844 | TURNER | M      | SALESMAN | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7920 | GRASS  | M      | SALESMAN | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7945 | AARUSH | M      | SALESMAN | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
++-------+--------+--------+----------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from emp_address
+    -> ;
+ERROR 1146 (42S02): Table 'dac103.emp_address' doesn't exist
+mysql> desc emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.01 sec)
+
+mysql> show tables;
++------------------------+
+| Tables_in_dac103       |
++------------------------+
+| a                      |
+| agent                  |
+| andor                  |
+| b                      |
+| batch_students         |
+| blanktablea            |
+| blanktableb            |
+| blog                   |
+| bonus                  |
+| books                  |
+| candidate              |
+| client                 |
+| coalesce               |
+| comments               |
+| company                |
+| course                 |
+| course_batches         |
+| course_modules         |
+| customer               |
+| customers              |
+| demodept1              |
+| demodept2              |
+| dept                   |
+| dept1                  |
+| docs                   |
+| doctor                 |
+| doctorvisits           |
+| dummy                  |
+| duplicate              |
+| emp                    |
+| emp1                   |
+| emp2                   |
+| emp_attendance         |
+| emp_cards              |
+| emp_phone              |
+| empj                   |
+| envelope               |
+| faculty                |
+| faculty_address        |
+| faculty_phone          |
+| faculty_qualifications |
+| food                   |
+| fullname               |
+| hobby                  |
+| item                   |
+| job_list               |
+| key_parts              |
+| labtestlist            |
+| leadtable              |
+| licence                |
+| location               |
+| mass_table             |
+| medicinelist           |
+| menucard               |
+| modules                |
+| nearest                |
+| new                    |
+| newbooks               |
+| nullif                 |
+| numbers                |
+| numberstring           |
+| ord                    |
+| orderdetails           |
+| orders                 |
+| overtime               |
+| patient                |
+| phonecall              |
+| pivot_table            |
+| plumber                |
+| plumber_service_map    |
+| points                 |
+| price                  |
+| product                |
+| product_sales          |
+| products               |
+| quarterly_revenue      |
+| r                      |
+| r1                     |
+| r2                     |
+| races                  |
+| regexpr                |
+| replacedept            |
+| revenue                |
+| rockets                |
+| runners                |
+| runningserver          |
+| sales                  |
+| sales_channel          |
+| salespeople            |
+| salesperson            |
+| salgrade               |
+| server                 |
+| service                |
+| seta                   |
+| setb                   |
+| shop                   |
+| softdrink              |
+| sort                   |
+| sourcenames            |
+| stadium                |
+| states                 |
+| station                |
+| status                 |
+| stringnumber           |
+| student                |
+| student_address        |
+| student_cards          |
+| student_order          |
+| student_phone          |
+| student_qualifications |
+| tablea                 |
+| tableaa                |
+| tableb                 |
+| tablebb                |
+| targetnames            |
+| tasks                  |
+| temp1                  |
+| traintimetable         |
+| transactions           |
+| vote_response          |
+| votes                  |
+| warehouse              |
+| yearly_revenue         |
+| z                      |
++------------------------+
+124 rows in set (0.01 sec)
+
+mysql> desc emp1;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| EMPNO    | int         | NO   | PRI | NULL    |       |
+| ENAME    | varchar(12) | YES  |     | NULL    |       |
+| JOB      | varchar(20) | YES  |     | NULL    |       |
+| MGR      | int         | YES  | MUL | NULL    |       |
+| HIREDATE | datetime    | YES  |     | NULL    |       |
+| SAL      | float(7,2)  | YES  |     | NULL    |       |
+| COMM     | float(7,2)  | YES  |     | NULL    |       |
+| DEPTNO   | int         | NO   | MUL | NULL    |       |
+| HOBBYID  | int         | YES  |     | NULL    |       |
+| BONUSID  | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+10 rows in set (0.01 sec)
+
+mysql> desc emp2;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| EMPNO    | int         | NO   | PRI | NULL    |       |
+| ENAME    | varchar(12) | YES  |     | NULL    |       |
+| JOB      | varchar(20) | YES  |     | NULL    |       |
+| HIREDATE | datetime    | YES  |     | NULL    |       |
+| SAL      | float(7,2)  | YES  |     | NULL    |       |
+| COMM     | float(7,2)  | YES  |     | NULL    |       |
+| DEPTNO   | int         | NO   | MUL | NULL    |       |
+| HOBBYID  | int         | YES  |     | NULL    |       |
+| BONUSID  | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+9 rows in set (0.02 sec)
+
+mysql> desc vstudent_address
+    -> ;
+ERROR 1146 (42S02): Table 'dac103.vstudent_address' doesn't exist
+mysql> desc student_addresss;
+ERROR 1146 (42S02): Table 'dac103.student_addresss' doesn't exist
+mysql> desc student_address;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| ID        | int          | NO   | PRI | NULL    |       |
+| studentID | int          | NO   | UNI | NULL    |       |
+| address   | varchar(128) | NO   | UNI | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from student_address;
++----+-----------+-------------------------------------------------------------------+
+| ID | studentID | address                                                           |
++----+-----------+-------------------------------------------------------------------+
+|  1 |         1 | 13758 Dogwood, St, Trona, CA, Los Angeles, 93562                  |
+|  2 |         2 | 2263 Ga 17 Hwy N, Millen, GA, Atlanta, 30442                      |
+|  3 |         3 | 409 Berry St, Louisa, KY, San Jose, 41230                         |
+|  4 |         4 | 7720 Covington Rd, Pink Stand, TN, San Francisco, 37188           |
+|  5 |         5 | 15 Hempstead, St, Saugus, MA, Las Vega, 1906                      |
+|  6 |         6 | 165 Village Dr., P.O. Box 3700, Oakland, TN, Oakland, 38060       |
+|  7 |         7 | Po Box 83, Faith, NC, New Jersey, 28041                           |
+|  8 |         8 | 3402 Buccaneer Rose Ave, Bakersfield, CA, Boston, 93313           |
+|  9 |         9 | Po Box 77, Linking Road, UK                                       |
+| 10 |        10 | 7710 Covington Rd , New State Road, New York, 37188               |
+| 11 |        11 | 15 Hempstead St, Saugus, MA, Boston, 1906                         |
+| 12 |        12 | 165 Ken city, P.O. Box 942873, 50 Higuera Street, Oakland, 38060  |
+| 13 |        13 | Po Box 83, Faith, NC, null, New York, 28041                       |
+| 14 |        14 | 808 Rocky Hill Rd, Plymouth 1993 Cross lane, Boston, 32360        |
+| 15 |        15 | 118 Lippitt Ave Warwick, 100 S. Main Street, Los Angeles, 12889   |
+| 16 |        16 | 5973 Moon Shadow Dr. Herriman, null, Atlanta, 2345                |
+| 17 |        17 | 13758 Dogwood St, Trona, null, San Jose, 93562                    |
+| 18 |        18 | 2263 Ga 17 Hwy N, Millen, null, Las Vega, 30442                   |
+| 19 |        19 | 321/vimal park, karve road, pune, 411038                          |
+| 20 |        20 | Prashant Society, Kothrud, pune, 411038                           |
+| 21 |        21 | 8 vaibhav, Ishadan soc, paud road, Pune                           |
+| 22 |        22 | 9 vaibhav, Ishadan soc, paud road, Pune                           |
+| 23 |        23 | 10  vaibhav, Ishadan soc, paud road, Pune                         |
+| 24 |        24 | 4 vaibhav, Ishadan soc, paud road, Pune                           |
+| 25 |        25 | 7 vaibhav, Ishadan soc, paud road, Pune                           |
+| 26 |        26 | 19 Hempstead St, go streat, MG, Boston, 19077                     |
+| 27 |        27 | 1699 Ken city, P.O. Box 942873, 50 Higuera Street, Oakland, 38060 |
+| 28 |        28 | Po Box 87, Faith, NC, New York, 28045                             |
++----+-----------+-------------------------------------------------------------------+
+28 rows in set (0.05 sec)
+
+mysql> select * from student_address where address='boston';
+Empty set (0.01 sec)
+
+mysql> select * from student_address where address='3402 Buccaneer Rose Ave, Bakersfield, CA, Boston, 93313';
++----+-----------+---------------------------------------------------------+
+| ID | studentID | address                                                 |
++----+-----------+---------------------------------------------------------+
+|  8 |         8 | 3402 Buccaneer Rose Ave, Bakersfield, CA, Boston, 93313 |
++----+-----------+---------------------------------------------------------+
+1 row in set (0.00 sec)
